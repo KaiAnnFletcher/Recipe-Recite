@@ -1,3 +1,6 @@
+# Recipe Reader
+## So you can focus on cooking when you are cooking
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
