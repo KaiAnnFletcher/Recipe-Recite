@@ -1,7 +1,5 @@
 # Create React Express App
 
-sarah made changes 
-Tiff made changes
 
 ## About This Boilerplate
 
