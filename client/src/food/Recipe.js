@@ -1,24 +1,26 @@
 import React, { Component } from "react";
-// import API from "../utils/API";
+import API from "../utils/API";
 
 import { List, ListItem, Jumbotron, Col, Row, Container } from "../components/Layout"; //import boostrap layout
 import { Input, FormBtn } from "../components/Form";//import form layout
-
+import cheerio from "cheerio";
 class Recipe extends Component {
   state = {
     recipe: []
   };
 
   
-  // componentDidMount() {
-  //   this.loadRecipe()
-  // };
+  componentDidMount() {
+    this.loadRecipe()
+  };
 
-  // loadRecipe = () => {
-  //   API.getRecipe()
-  //     .then(res => this.setState({ recipe: res.data }))
-  //     .catch(err => console.log(err));
-  // };
+  loadRecipe = () => {
+    API.scrapeAllRecipes()
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => console.log(err));
+  };
 
   render() {
     return (
