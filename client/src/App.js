@@ -1,13 +1,13 @@
 import React from "react";
-import Recipe from "./food/Recipe.js";
-import Nav from "./components/Nav";
-import Footer from "./components/Footer";
+import Nav from "./components/Nav2";
+import DisplayCard from "./components/DisplayCard2";
+import Footer from "./components/Footer2";
 
 function App() {
   return (
     <div>
       <Nav />
-      <Recipe />
+      <DisplayCard />
       <Footer />
     </div>
   );
