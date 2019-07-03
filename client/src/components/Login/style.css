@@ -1,0 +1,36 @@
+.login input{
+    opacity:2;
+    background:lightgoldenrodyellow;
+    color: black;
+    height: 35px;
+    border-radius:5px;
+}
+
+/* .login i {
+    margin:0px;
+    padding:0px;
+    border:0px;
+} */
+
+.login button {
+    /* margin:0px;
+    padding:0px;
+    border:0px;
+    height: 35px;
+    border-radius:5px; */
+    background: green;
+}
+
+@media only screen and (max-width: 640px) {
+    .styleSearch{
+        width: 100%;
+        margin-top:20px;
+    }
+    
+    .form-group input{
+        width: 70%;
+        height: 40px;
+        border-radius:5px;
+    }
+  
+  };

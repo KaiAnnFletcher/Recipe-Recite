@@ -1,18 +1,59 @@
-import React from "react";
-import Nav from "./components/Nav2";
-import DisplayCard from "./components/DisplayCard2";
-import Footer from "./components/Footer2";
-import Widget from "./components/Widget";
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Search from "./pages/Search";
+import UserPage from "./pages/UserPage";
+import Wrapper from "./components/Wrapper";
 
-function App() {
-  return (
+class App extends Component {
+  render() {
+    return (
     <div>
-      <Nav />
-      <DisplayCard />
-      <Footer />
-      <Widget />
+      <div id='splash'>
+          <div id='bars'>
+            <div class='bar'></div>
+            <div class='bar'></div>
+            <div class='bar'></div>
+            <div class='bar'></div>
+            <div class='bar'></div>
+            <div class='bar'></div>
+            <div class='bar'></div>
+            <div class='bar'></div>
+            <div class='bar'></div>
+            <div class='bar'></div>
+            <div class='bar'></div>
+            <div class='bar'></div>
+            <div class='bar'></div>
+            <div class='bar'></div>
+            <div class='bar'></div>
+            <img id="Apptitle" src="https://i.ibb.co/JjXYSBh/logo.png"></img>
+          </div>
+          
+      </div>
+      
+          
+      
+
+      <div id='App'>
+        <Router>
+          <div>
+            <Navbar />
+            <Wrapper>
+              <Route exact path="/" component={Search} />
+              <Route exact path="/userpage" component={UserPage} />
+            </Wrapper>
+          </div>
+        </Router>
+      </div>
+
     </div>
-  );
+    );
+  }
 }
+
+
+
+
 
 export default App;
