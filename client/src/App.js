@@ -9,8 +9,8 @@ import Wrapper from "./components/Wrapper";
 class App extends Component {
   render() {
     return (
-    <div>
-      <div id='splash'>
+      <div>
+        <div id='splash'>
           <div id='bars'>
             <div class='bar'></div>
             <div class='bar'></div>
@@ -27,27 +27,27 @@ class App extends Component {
             <div class='bar'></div>
             <div class='bar'></div>
             <div class='bar'></div>
-            <img id="Apptitle" src="https://i.ibb.co/JjXYSBh/logo.png"></img>
+            <img alt="mainlogo" id="Apptitle" src="https://i.ibb.co/JjXYSBh/logo.png"></img>
           </div>
-          
-      </div>
-      
-          
-      
 
-      <div id='App'>
-        <Router>
-          <div>
-            <Navbar />
-            <Wrapper>
-              <Route exact path="/" component={Search} />
-              <Route exact path="/userpage" component={UserPage} />
-            </Wrapper>
-          </div>
-        </Router>
-      </div>
+        </div>
 
-    </div>
+
+
+
+        <div id='App'>
+          <Router>
+            <div>
+              <Navbar />
+              <Wrapper>
+                <Route exact path="/" component={Search} />
+                <Route exact path="/userpage" component={UserPage} />
+              </Wrapper>
+            </div>
+          </Router>
+        </div>
+
+      </div >
     );
   }
 }
