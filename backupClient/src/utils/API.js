@@ -1,6 +1,5 @@
 import axios from "axios";
-import sampleData from "./sampleData.json";
-import cheerio from "cheerio";
+
 export default {
     scrapeAllRecipes: function () {
         axios.get("https://www.allrecipes.com/").then(function (response) {
