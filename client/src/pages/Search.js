@@ -6,8 +6,6 @@ import API from "../utils/API";
 import SaveBtn from "../components/Bookmark";
 import LinkBtn from "../components/LinkBtn";
 import sampleData from "../utils/sampleData.json"; 
-import cheerio from "cheerio";
-import axios from 'axios'
 
 class Search extends Component {
     state = {
@@ -21,10 +19,9 @@ class Search extends Component {
 
     componentDidMount(){
         let fun = data => {
-            debugger;
             console.log("****** = >",data.data);
         };
-        API.scrapeAllRecipes()
+        API.scrapeBySearch("Kung Pao Chicken")
         .then(fun)
         .catch(err => { console.log(err)})
     }
