@@ -1,36 +1,27 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="theme-color" content="#000000">
+    <link rel="stylesheet" href="%PUBLIC_URL%/embed.css" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/journal/bootstrap.min.css"/>
+    <title>Recipe Read App</title>
+  </head>
+  <body>
 
-  <link rel="stylesheet" href="./css/embed.css" />
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/journal/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <title>Recipe Read App</title>
-</head>
+    <div id="root"></div>
 
-<body>
+    <script src="%PUBLIC_URL%/embed.js"></script>   
 
-  <script src="./embed.js"></script>
+        <script>
+            var options = {};
+            Botkit.boot(options);
+        </script>
 
-  <script>
-    var options = {};
-    Botkit.boot(options);
-  </script>
-
-
-  <!-- App Page -->
-  <div id="root"></div>
-
-  <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
-  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-
-</body>
-
+  </body>
 </html>
