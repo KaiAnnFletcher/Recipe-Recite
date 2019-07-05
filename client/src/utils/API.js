@@ -1,5 +1,10 @@
 import axios from "axios";
 
+
+
+// import sampleData from "./sampleData.json";
+import cheerio from "cheerio";
+
 export default {
     scrapeAllRecipes: function () {
         return axios.get("/api/recipe/scrape");

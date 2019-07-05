@@ -5,12 +5,15 @@ import Navbar from "./components/Navbar";
 import Search from "./pages/Search";
 import UserPage from "./pages/UserPage";
 import Wrapper from "./components/Wrapper";
+import Widget from "./components/Widget";
+import RecipeSelect from "./pages/RecipeSelect";
+
 
 class App extends Component {
   render() {
     return (
-    <div>
-      <div id='splash'>
+      <div>
+        <div id='splash'>
           <div id='bars'>
             <div className='bar'></div>
             <div className='bar'></div>
@@ -32,22 +35,26 @@ class App extends Component {
           
       </div>
       
-          
-      
 
-      <div id='App'>
-        <Router>
-          <div>
-            <Navbar />
-            <Wrapper>
-              <Route exact path="/" component={Search} />
-              <Route exact path="/userpage" component={UserPage} />
-            </Wrapper>
-          </div>
-        </Router>
-      </div>
+        <div id='App'>
+          <Router>
+            <div>
+              <Navbar />
+              <Wrapper>
+                <Route exact path="/" component={Search} />
 
-    </div>
+                <Route exact path="/userpage" component={UserPage} />
+                <Widget />
+
+                <Route exact path="/UserPage" component={UserPage} />
+                <Route exact path="/RecipeSelect" component={RecipeSelect} />
+
+              </Wrapper>
+            </div>
+          </Router>
+        </div>
+
+      </div >
     );
   }
 }

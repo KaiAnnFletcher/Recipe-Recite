@@ -96,7 +96,7 @@ var Botkit = {
   
       that.container = document.getElementById('embedded_messenger');
       that.header = document.getElementById('messenger_header');
-      that.chatClient = document.getElementById('botkit_client').contentWindow;
+      that.chatClient.onload = document.getElementById('botkit_client').contentWindow;
   
       if (user) {
         that.current_user = user;
