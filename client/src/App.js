@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Search from "./pages/Search";
 import UserPage from "./pages/UserPage";
 import Wrapper from "./components/Wrapper";
+import Widget from "./components/Widget";
 
 class App extends Component {
   render() {
@@ -42,6 +43,7 @@ class App extends Component {
               <Wrapper>
                 <Route exact path="/" component={Search} />
                 <Route exact path="/userpage" component={UserPage} />
+                <Widget />
               </Wrapper>
             </div>
           </Router>
