@@ -5,7 +5,9 @@ import Navbar from "./components/Navbar";
 import Search from "./pages/Search";
 import UserPage from "./pages/UserPage";
 import Wrapper from "./components/Wrapper";
+import Widget from "./components/Widget";
 import RecipeSelect from "./pages/RecipeSelect";
+
 
 class App extends Component {
   render() {
@@ -42,8 +44,13 @@ class App extends Component {
               <Navbar />
               <Wrapper>
                 <Route exact path="/" component={Search} />
+
+                <Route exact path="/userpage" component={UserPage} />
+                <Widget />
+
                 <Route exact path="/UserPage" component={UserPage} />
                 <Route exact path="/RecipeSelect" component={RecipeSelect} />
+
               </Wrapper>
             </div>
           </Router>
