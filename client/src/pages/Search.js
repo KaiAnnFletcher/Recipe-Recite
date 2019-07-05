@@ -4,9 +4,13 @@ import SearchForm from "../components/SearchForm";
 import { List, ListItem } from "../components/List";
 import API from "../utils/API";
 import LinkBtn from "../components/LinkBtn";
+
+import sampleData from "../utils/sampleData.json"; 
+
 import sampleData from "../utils/sampleData.json";
 import Bookmark from "../components/Bookmark";
 // import cheerio from "cheerio";
+
 
 class Search extends Component {
     state = {
@@ -18,6 +22,16 @@ class Search extends Component {
     handleInputChange = event => {
         this.setState({ search: event.target.value });
     };
+
+
+    componentDidMount(){
+        let fun = data => {
+            console.log("****** = >",data.data);
+        };
+        API.scrapeBySearch("Kung Pao Chicken")
+        .then(fun)
+        .catch(err => { console.log(err)})
+    }
 
     //Form Submission to search for recipe 
 
@@ -32,6 +46,7 @@ class Search extends Component {
     //     })
     //         .catch(err => console.log(err));
     // }
+
 
     //handle clicking on a specific result
     handleViewClick = link => {
