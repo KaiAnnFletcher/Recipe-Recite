@@ -1,5 +1,18 @@
+/*This is expecting a mixin*/
+
+/*Example below*/
+
+/*@mixin transform($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+.box { @include transform(rotate(30deg)); }*/ 
+
+/*I am going to comment it out*/
+
 #home {
-    @include clearfix;
+    /*@include clearfix;*/
     position: relative;
     max-width: 650px;
     margin: auto;
