@@ -3,10 +3,9 @@ import { Col, Row, Container } from "../components/Grid";
 import SearchForm from "../components/SearchForm";
 import { List, ListItem } from "../components/List";
 import API from "../utils/API";
-import SaveBtn from "../components/Bookmark";
 import LinkBtn from "../components/LinkBtn";
 import sampleData from "../utils/sampleData.json";
-import ResponsiveVoice from "../components/recipePage";
+import Bookmark from "../components/Bookmark";
 // import cheerio from "cheerio";
 
 class Search extends Component {
@@ -51,23 +50,6 @@ class Search extends Component {
             .catch(err => console.log(err));
     }
 
-
-    // responsive voice =====================================================
-    handleInputChange = event => {
-        console.log(event.target.value);
-        this.setState({
-            input: event.target.value,
-        })
-    };
-    handleFormSubmit = event => {
-        // event.preventDefault();
-        console.log(event);
-        // alert(this.state.input);
-        window.responsiveVoice.speak(this.state.input, "UK English Female");
-    }
-
-
-
     render() {
         return (
             <Container>
@@ -79,10 +61,6 @@ class Search extends Component {
                             handleInputChange={this.handleInputChange}
                         />
                     </Col>
-                    <ResponsiveVoice
-                        handleFormSubmit={this.handleFormSubmit}
-                        handleInputChange={this.handleInputChange}>
-                    </ResponsiveVoice>
                 </Row>
                 <Row>
                     <Col size="md-12">
@@ -105,8 +83,8 @@ class Search extends Component {
                                             value={this.state.title}
 
                                         />
-                                        <SaveBtn onClick={() => this.handleSaveClick(data.title)} />
-                                        <LinkBtn onClick={() => this.handleViewClick(data.title)} />
+                                        <Bookmark />
+                                        <LinkBtn />
                                     </ListItem>
 
                                 ))}

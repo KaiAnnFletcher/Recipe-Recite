@@ -1,3 +1,4 @@
+
 import React from "react";
 
 function responsiveVoice(props) {
@@ -13,22 +14,18 @@ function responsiveVoice(props) {
         //         Play
         //     </button>
         // </div>
-
-        <div className="container">
+        <div>
             <form>
-                <div class="form-group">
+                <div className="form-group">
+                    <label for="exampleFormControlTextarea1">Example text-to-speech</label>
                     <textarea
-                        class="form-control"
+                        className="form-control"
                         id="exampleFormControlTextarea1"
                         rows="3"
                         onChange={props.handleInputChange}
                         value={props.input}
                     ></textarea>
                 </div>
-                <button onClick={props.handleFormSubmit} className="btn btn-success">
-                    Play
-            </button>
-                <button id='microphone-btn' onClick={props.toggleListen}> Listen </button>
 
             </form>
         </div >
