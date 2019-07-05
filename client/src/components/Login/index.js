@@ -22,7 +22,7 @@ function Login(props) {
             type="text"
             placeholder="password"
         />
-        <button className="btn" type="submit" onClick={props.handleLoginSubmit}><i class="fa fa-user"></i></button>
+        <button className="btn" type="submit" onClick={props.handleLoginSubmit}><i className="fa fa-user"></i></button>
     </div>
     </form>
 

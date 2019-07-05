@@ -7,6 +7,7 @@ import SaveBtn from "../components/Bookmark";
 import LinkBtn from "../components/LinkBtn";
 import sampleData from "../utils/sampleData.json"; 
 import cheerio from "cheerio";
+import axios from 'axios'
 
 class Search extends Component {
     state = {
@@ -18,19 +19,15 @@ class Search extends Component {
         this.setState({ search: event.target.value });
     };
 
-//Form Submission to search for recipe 
-
-    // handleFormSubmit = event => {
-    //     event.preventDefault();
-
-    //     API.getRecipeFromWeb(this.state.search)
-    //         .then(res => {
-    //             this.setState({
-    //             results: res.data.items
-    //             });
-    //     })
-    //         .catch(err => console.log(err));
-    // }
+    componentDidMount(){
+        let fun = data => {
+            debugger;
+            console.log("****** = >",data.data);
+        };
+        API.scrapeAllRecipes()
+        .then(fun)
+        .catch(err => { console.log(err)})
+    }
 
     //handle clicking on a specific result
     handleViewClick = link => {
