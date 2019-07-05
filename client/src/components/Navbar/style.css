@@ -14,6 +14,12 @@
 
 }
 
+/* .loginlink{
+  position:relative;
+  left: 70%;
+  font-size: 60px;
+} */
+
 @media only screen and (max-width: 640px) {
   .styleNav{
     background:white;

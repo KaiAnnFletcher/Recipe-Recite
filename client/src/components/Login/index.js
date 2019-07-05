@@ -6,7 +6,7 @@ function Login(props) {
     return (
 
 
-    <form className="login">
+    <form className="login formStyle">
     <div className="form-group">
         <label htmlFor="title"></label>
         <input
@@ -26,7 +26,7 @@ function Login(props) {
         <button className="btn" type="submit" onClick={props.handleLoginSubmit}><i className="fa fa-user"></i></button>
     </div>
     </form>
-=======
+
 //         <form className="login">
 //             <div className="form-group">
 //                 <label htmlFor="title"></label>

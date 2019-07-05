@@ -4,10 +4,7 @@ import SearchForm from "../components/SearchForm";
 import { List, ListItem } from "../components/List";
 import API from "../utils/API";
 import LinkBtn from "../components/LinkBtn";
-
 import sampleData from "../utils/sampleData.json"; 
-
-import sampleData from "../utils/sampleData.json";
 import Bookmark from "../components/Bookmark";
 // import cheerio from "cheerio";
 

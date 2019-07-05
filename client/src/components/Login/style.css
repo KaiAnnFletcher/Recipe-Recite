@@ -1,8 +1,13 @@
+.formStyle{
+    position:relative;
+    left:-250px;
+    margin-top:20px;
+}
 .login input{
     opacity:2;
     background:lightgoldenrodyellow;
     color: black;
-    height: 35px;
+    height: 40px;
     border-radius:5px;
 }
 
@@ -22,6 +27,13 @@
 }
 
 @media only screen and (max-width: 640px) {
+
+    form{
+    position:relative;
+    left: 0px;
+    margin-top:20px;
+}
+
     .styleSearch{
         width: 100%;
         margin-top:20px;
