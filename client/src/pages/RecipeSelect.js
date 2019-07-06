@@ -20,7 +20,8 @@ class Speech extends Component {
         super()
         this.state = {
             listening: false,
-            input: ""
+            input: "",
+            title: "testing"
         }
         this.toggleListen = this.toggleListen.bind(this)
         this.handleListen = this.handleListen.bind(this)
@@ -118,6 +119,7 @@ class Speech extends Component {
                 <Container >
                 <ResposiveVoice
                     handleInputChange={this.handleInputChange}
+                    title={this.state.title}
                 >
                 </ResposiveVoice>
                 <button onClick={this.handleFormSubmit} onClick={this.toggleListen} className="btn btn-success">

@@ -15,7 +15,8 @@ class Search extends Component {
         search: "",
         // results: sampleData,
         input: "",
-        data: []
+        data: [],
+
 
 
     };
