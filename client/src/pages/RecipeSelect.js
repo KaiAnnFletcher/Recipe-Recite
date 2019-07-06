@@ -22,7 +22,7 @@ class Speech extends Component {
         super()
         this.state = {
             listening: false,
-            input: "",
+            // input: "",
             recipe: {}
         }
         this.toggleListen = this.toggleListen.bind(this)
@@ -100,25 +100,22 @@ class Speech extends Component {
         }
     }
     // -------------------------RESPONSIVE VOICE JS------------------------------------
-    handleInputChange = event => {
-        console.log(event.target.value);
+    // handleInputChange = event => {
+    //     console.log(event.target.value);
 
-        this.setState({
-            input: event.target.value,
-        })
-    };
+    //     this.setState({
+    //         input: event.target.value,
+    //     })
+    // };
+
     handleFormSubmit = event => {
-        // event.preventDefault();
         console.log(event);
-        console.log(this.state.input);
-        window.responsiveVoice.speak(this.state.input, "UK English Female", { rate: 1.5 }, { pitch: 2 }, { volume: 2 });
-        // window.responsiveVoice("hello world", "UK English Female")
+        window.responsiveVoice.speak(this.state.recipe.title, "UK English Female", { rate: .7 }, { pitch: 2 }, { volume: 2 });
     }
     // component did mount will grab the id of the recipe from the url to populate component with data
     componentDidMount() {
         API.getRecipeById(this.props.match.params.id)
             .then(res => this.setState({ recipe: res.data },
-                // console.log(res),
                 console.log(res.data)
             ))
             .catch(err => console.log(err));
@@ -131,7 +128,7 @@ class Speech extends Component {
                     <Bookmark />
 
                     <ResposiveVoice
-                        handleInputChange={this.handleInputChange}
+                        // handleInputChange={this.handleInputChange}
                         title={this.state.recipe.title}
                         author={this.state.recipe.author}
                         summary={this.state.recipe.summary}
@@ -140,8 +137,9 @@ class Speech extends Component {
 
                     >
                     </ResposiveVoice>
+                    <br></br>
                     <button onClick={this.handleFormSubmit} className="btn btn-success">
-                        Play / Listen
+                        Play
                 </button>
                     <button className="btn btn-primary" onClick={this.toggleListen} > Listen </button>
                     <div id='final'></div>

@@ -9,13 +9,14 @@ function responsiveVoice(props) {
             <Row>
                 <Col size="md-12">
                     <div>
-                        <h4>Title: {props.title}</h4>
-                        <h4>Author: {props.author}</h4>
-                        <h4>Summary: {props.summary}</h4>
-                        {/* <img alt="thumbnail" src={props.thumbnail}></img> */}
-                        <h4>Link: {props.link}</h4>
-
-                        <form>
+                        <img alt="thumbnail" src={props.thumbnail}></img>
+                        <h4>{props.title}</h4>
+                        <h5>Author: </h5>
+                        <p>{props.author}</p>
+                        <h5>Summary: </h5>
+                        <p>{props.summary}</p>
+                        <a href={props.link}>Link to the Recipe Website</a>
+                        {/* <form>
                             <div className="form-group">
                                 <label for="exampleFormControlTextarea1">Example text-to-speech</label>
                                 <textarea
@@ -26,11 +27,11 @@ function responsiveVoice(props) {
                                     value={props.input}
                                 ></textarea>
                             </div>
-                        </form>
+                        </form> */}
                     </div >
                 </Col>
             </Row>
-        </Container>
+        </Container >
 
     )
 }

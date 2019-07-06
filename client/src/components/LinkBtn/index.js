@@ -7,7 +7,6 @@ function LinkBtn(props) {
     <button className="linkBtn" onClick={props.onClick}>
       <span>Select
         <Link className="navbar-brand" to="RecipeSelect"></Link>
-        
       </span>
     </button>
   );
