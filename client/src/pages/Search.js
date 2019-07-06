@@ -93,19 +93,12 @@ class Search extends Component {
                                     <ListItem key={data.data}>
                                         <h2><strong>{data.title}</strong></h2>
                                         <Container>
-                                            <h5>{"Authors: "}</h5>
-                                            <h2>{data.author}</h2>
+                                            <img src={data.thumbnail} ></img>
+                                            <h5>{data.author}</h5>
+                                            <p>{data.summary}</p>
+                            
                                         </Container>
-                                        <Container
-                                            id={data.id}
-                                            key={data.id}
-                                            title={data.title}
-                                            thumbnail={data.thumbnail}
-                                            summary={data.summary}
-                                            author={data.author}
-                                            value={this.state.title}
-
-                                        />
+             
                                         <Bookmark />
                                         <LinkBtn />
                                     </ListItem>

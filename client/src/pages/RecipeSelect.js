@@ -1,6 +1,8 @@
 
 import React, { Component } from "react"
 import ResposiveVoice from "../components/recipePage";
+import Bookmark from "../components/Bookmark";
+import { Col, Row, Container } from "../components/Grid";
 
 //------------------------SPEECH RECOGNITION-----------------------------
 
@@ -112,6 +114,8 @@ class Speech extends Component {
     render() {
         return (
             <div className="container">
+             <Bookmark />
+                <Container >
                 <ResposiveVoice
                     handleInputChange={this.handleInputChange}
                 >
@@ -121,7 +125,10 @@ class Speech extends Component {
                 </button>
                 {/* <button className="btn btn-primary" onClick={this.toggleListen} > Listen </button> */}
                 <div id='final'></div>
+                </Container>
             </div>
+
+           
         )
     }
 }
