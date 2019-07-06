@@ -17,6 +17,7 @@ class Search extends Component {
         input: "",
         data: []
 
+
     };
 
     handleInputChange = event => {
@@ -28,6 +29,7 @@ class Search extends Component {
         event.preventDefault();
 
         let fun = data => {
+
             console.log("****** = >", data.data);
             console.log(data.data[1].title);
             this.setState({ data: data.data })
