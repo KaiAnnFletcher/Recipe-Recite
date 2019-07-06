@@ -80,7 +80,13 @@ router.get("/scrape/:id", function (req, res) {
     //result.instructions = $("div.directions--section").children("div.directions--section__steps").text();
     result.instructions = $("span.recipe-directions__list--item").text();
     result.instructions = result.instructions.replace(/  +/g, '  ').split("\n  ").slice(0, -1);
-
+    result.ingredients = [];
+    $("span.recipe-ingred_txt").each(function(i, element) {
+      var scraped = $(this).text();
+      if (scraped != 'Add all ingredients to list' && scraped != '') {
+        result.ingredients.push(scraped);
+      }
+    });
     res.json(result);
   });
 });
