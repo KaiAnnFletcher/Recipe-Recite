@@ -14,6 +14,6 @@ export default {
         return axios.get("/api/recipe/search/" + parsedString);
     },
     getRecipeById: function (id) {
-        return axios.get("api/recipe/" + id)        
+        return axios.get("/api/recipe/" + id)        
     }
 }
