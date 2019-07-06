@@ -58,8 +58,9 @@ router.get("/scrape", function (req, res) {
 
 
       if (result.title !== '') {
+        result.linkid = result.link.match(/\d{4,6}/g)[0];
         const promise = Recipe
-        .findOneAndUpdate(result, result, {upsert:true})
+        .findOneAndUpdate(result, result, {upsert:true, new:true})
         promises.push(promise);
         // .then(dbModel => output.push(dbModel));
       }
@@ -132,9 +133,12 @@ router.get("/search/:search", function (req, res) {
         .children("h4")
         .text();
 
+
+
       if (result.title !== '') {
+        result.linkid = result.link.match(/\d{4,6}/g)[0];
         const promise = Recipe
-        .findOneAndUpdate(result, result, {upsert:true})
+        .findOneAndUpdate(result, result, {upsert:true, new:true})
         promises.push(promise);
         // .then(dbModel => output.push(dbModel));
       }
