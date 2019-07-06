@@ -13,7 +13,8 @@ class Search extends Component {
     state = {
         search: "",
         results: sampleData,
-        input: ""
+        input: "",
+        data: []
     };
 
     handleInputChange = event => {
@@ -24,6 +25,9 @@ class Search extends Component {
     componentDidMount(){
         let fun = data => {
             console.log("****** = >",data.data);
+            this.setState({
+                data: data.data
+            })
         };
         API.scrapeBySearch("Kung Pao Chicken")
         .then(fun)
