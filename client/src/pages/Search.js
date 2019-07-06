@@ -32,6 +32,10 @@ class Search extends Component {
                 this.setState({ data: data.data })
             })
             .catch(err => {console.log(err)});
+        API.scrapeRecipeById(147103)
+            .then(data => {
+                console.log(data.data);
+            })
     }
 
 
@@ -40,8 +44,8 @@ class Search extends Component {
 
         let fun = data => {
 
-            console.log("****** = >", data.data);
-            console.log(data.data[1].title);
+            //console.log("****** = >", data.data);
+            //console.log(data.data[1].title);
             this.setState({ data: data.data })
 
         };
