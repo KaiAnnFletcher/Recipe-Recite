@@ -14,22 +14,22 @@ class Widget extends React.Component {
     super(props);
 
     this.state = { active: false };
-      this.toggle = this.toggle.bind(this);
+    this.toggle = this.toggle.bind(this);
   }
 
-   toggle() {
-     this.setState({ active: !this.state.active })
-      console.log("Hello World");
+  toggle() {
+    this.setState({ active: !this.state.active })
+    console.log("Hello World");
 
   }
 
-render() {
-  return (
-    
-  <div id="embedded_messenger" class={this.state.active ? "active":"" }> 
-      <header id="message_header" onClick= {this.toggle} >Chat</header>
-      <iframe  title="" id="botkit_client" src="../../public/chat.html"></iframe>
-  </div>
+  render() {
+    return (
+
+      <div id="embedded_messenger" class={this.state.active ? "active" : ""}>
+        <header id="message_header" onClick={this.toggle} >Chat</header>
+        <iframe title="botkitclient" id="botkit_client" src="../../public/chat.html"></iframe>
+      </div>
     );
   }
 }

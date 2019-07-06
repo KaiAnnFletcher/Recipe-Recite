@@ -95,10 +95,10 @@ class Search extends Component {
                                     <ListItem key={data.data}>
                                         <h2><strong>{data.title}</strong></h2>
                                         <Container>
-                                            <img src={data.thumbnail} ></img>
+                                            <img alt="thumbnail" src={data.thumbnail} ></img>
                                             <h5>{data.author}</h5>
                                             <p>{data.summary}</p>
-                            
+
                                         </Container>
              
                                         <Link to={"/UserPage"}>

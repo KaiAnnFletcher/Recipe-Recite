@@ -110,8 +110,9 @@ class Speech extends Component {
     handleFormSubmit = event => {
         // event.preventDefault();
         console.log(event);
-        // alert(this.state.input);
-        window.responsiveVoice.speak(this.state.input, "UK English Female");
+        console.log(this.state.input);
+        window.responsiveVoice.speak(this.state.input, "UK English Female", { rate: 1.5 }, { pitch: 2 }, { volume: 2 });
+        // window.responsiveVoice("hello world", "UK English Female")
     }
 
     render() {
