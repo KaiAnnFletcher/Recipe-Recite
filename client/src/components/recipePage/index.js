@@ -3,18 +3,13 @@ import React from "react";
 
 function responsiveVoice(props) {
     return (
-        // <div>
-        //     <h4>{props.title}</h4>
-        //     <h4>{props.author}</h4>
-        //     <h4>{props.summary}</h4>
-        //     <h4>{props.thumbnail}</h4>
-        //     <h4>{props.ingr}</h4>
-        //     <h4>{props.steps}</h4>
-        //     <button onClick={props.handleFormSubmit} className="btn btn-success">
-        //         Play
-        //     </button>
-        // </div>
         <div>
+            {/* <h4>Title: {props.title}</h4>
+            <h4>Author: {props.author}</h4>
+            <h4>Summary: {props.summary}</h4>
+            <img>Thumbnail: {props.thumbnail}</img>
+            <h4>Link: {props.link}</h4> */}
+
             <form>
                 <div className="form-group">
                     <label for="exampleFormControlTextarea1">Example text-to-speech</label>

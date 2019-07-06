@@ -4,17 +4,20 @@ import SearchForm from "../components/SearchForm";
 import { List, ListItem } from "../components/List";
 import API from "../utils/API";
 import LinkBtn from "../components/LinkBtn";
-import sampleData from "../utils/sampleData.json"; 
+// import sampleData from "../utils/sampleData.json";
 import Bookmark from "../components/Bookmark";
+// import RecipePage from "../components/recipePage";
 // import cheerio from "cheerio";
 
 
 class Search extends Component {
     state = {
         search: "",
-        results: sampleData,
+        // results: sampleData,
         input: "",
         data: []
+
+
     };
 
     handleInputChange = event => {
@@ -22,30 +25,34 @@ class Search extends Component {
     };
 
 
-    componentDidMount(){
+    handleFormSubmit = event => {
+        event.preventDefault();
+
         let fun = data => {
-            console.log("****** = >",data.data);
-            this.setState({
-                data: data.data
-            })
+
+            console.log("****** = >", data.data);
+            console.log(data.data[1].title);
+            this.setState({ data: data.data })
+
         };
-        API.scrapeBySearch("Kung Pao Chicken")
-        .then(fun)
-        .catch(err => { console.log(err)})
+        API.scrapeBySearch(this.state.search)
+            .then(fun)
+            .catch(err => { console.log(err) })
     }
+
 
     //Form Submission to search for recipe 
 
     // handleFormSubmit = event => {
     //     event.preventDefault();
 
-    //     API.getRecipeFromWeb(this.state.search)
-    //         .then(res => {
-    //             this.setState({
+    //     API.scrapeBySearch(this.state.search)
+    //     .then(res => {
+    //         this.setState({
     //             results: res.data.items
-    //             });
+    //         });
     //     })
-    //         .catch(err => console.log(err));
+    //     .catch(err => console.log(err));
     // }
 
 
@@ -80,10 +87,10 @@ class Search extends Component {
                 </Row>
                 <Row>
                     <Col size="md-12">
-                        {this.state.results.length ? (
+                        {this.state.data.length ? (
                             <List>
-                                {this.state.results.map(data => (
-                                    <ListItem key={data.title}>
+                                {this.state.data.map(data => (
+                                    <ListItem key={data.data}>
                                         <h2><strong>{data.title}</strong></h2>
                                         <Container>
                                             <h5>{"Authors: "}</h5>

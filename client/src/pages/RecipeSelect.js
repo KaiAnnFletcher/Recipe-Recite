@@ -90,8 +90,6 @@ class Speech extends Component {
                 }
         }
 
-        //-----------------------------------------------------------------------
-
         recognition.onerror = event => {
             console.log("Error occurred in recognition: " + event.error)
         }
