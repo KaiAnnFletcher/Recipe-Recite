@@ -6,6 +6,7 @@ import API from "../utils/API";
 import LinkBtn from "../components/LinkBtn";
 // import sampleData from "../utils/sampleData.json";
 import Bookmark from "../components/Bookmark";
+import { Link } from "react-router-dom";
 // import RecipePage from "../components/recipePage";
 // import cheerio from "cheerio";
 
@@ -99,10 +100,17 @@ class Search extends Component {
                                             <p>{data.summary}</p>
 
                                         </Container>
-
+             
+                                        <Link to={"/UserPage"}>
                                         <Bookmark />
-                                        <LinkBtn />
-                                    </ListItem>
+                                        </Link>
+                                        
+                                        <Link to={"/RecipeSelect/" + data.linkid}>
+                                        <LinkBtn 
+                                        linkid={data.linkid}
+                                        />
+                                        </Link>
+                                    </ ListItem>
 
                                 ))}
                             </List>

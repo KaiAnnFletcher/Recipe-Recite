@@ -2,7 +2,9 @@
 import React, { Component } from "react"
 import ResposiveVoice from "../components/recipePage";
 import Bookmark from "../components/Bookmark";
-import { Container } from "../components/Grid";
+// import { Col, Row, Container } from "../components/Grid";
+import Wrapper from "../components/Wrapper";
+import "./style.css";
 
 //------------------------SPEECH RECOGNITION-----------------------------
 
@@ -115,23 +117,24 @@ class Speech extends Component {
 
     render() {
         return (
-            <div className="container">
-                <Bookmark />
-                <Container >
-                    <ResposiveVoice
-                        handleInputChange={this.handleInputChange}
-                        title={this.state.title}
-                    >
-                    </ResposiveVoice>
-                    <button onClick={this.handleFormSubmit} className="btn btn-success">
-                        Play
-                     </button>
-                    <button className="btn btn-primary" onClick={this.toggleListen} > Listen
-                     </button>
-                    <div id='final'></div>
-                </Container>
-            </div>
+            <Wrapper >
+            <div className="container styleRecipeSelect">
+             <Bookmark />
+ 
+                <ResposiveVoice
+                    handleInputChange={this.handleInputChange}
+                    title={this.state.title}
+                >
+                </ResposiveVoice>
+                <button onClick={this.handleFormSubmit}  className="btn btn-success">
+                    Play / Listen
+                </button>
+                <button className="btn btn-primary" onClick={this.toggleListen} > Listen </button>
+                <div id='final'></div>
 
+            </div>
+            </Wrapper>
+           
         )
     }
 }
