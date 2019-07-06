@@ -26,6 +26,14 @@ class Search extends Component {
         this.setState({ search: event.target.value });
     };
 
+    componentDidMount() {
+        API.scrapeAllRecipes()
+            .then(data => {
+                this.setState({ data: data.data })
+            })
+            .catch(err => {console.log(err)});
+    }
+
 
     handleFormSubmit = event => {
         event.preventDefault();
