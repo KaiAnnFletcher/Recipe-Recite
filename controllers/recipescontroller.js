@@ -17,7 +17,7 @@ module.exports = {
   },
   create: function(req, res) {
     Recipe
-      .findOneAndUpdate(req.body, req.body, {upsert:true})
+      .findOneAndUpdate(req.body, req.body, {upsert:true, new:true})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

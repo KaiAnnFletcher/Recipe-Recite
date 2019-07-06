@@ -4,3 +4,5 @@ const usersController = require("../../controllers/userscontroller");
 router.route("/")
   .get(usersController.findOne)
   .post(usersController.create);
+
+module.exports = router;
