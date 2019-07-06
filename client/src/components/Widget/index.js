@@ -28,7 +28,7 @@ render() {
     
   <div id="embedded_messenger" class={this.state.active ? "active":"" }> 
       <header id="message_header" onClick= {this.toggle} >Chat</header>
-      <iframe  id="botkit_client" src="../../public/chat.html"></iframe>
+      <iframe  title="" id="botkit_client" src="../../public/chat.html"></iframe>
   </div>
     );
   }

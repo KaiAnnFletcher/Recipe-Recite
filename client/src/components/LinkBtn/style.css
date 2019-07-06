@@ -1,6 +1,8 @@
 .linkBtn {
     float: right;
-    /* color: white; */
-    /* background-color: green;
-    border-radius: 20px; */
+    border-radius:5px;
+    padding:0px;
+    padding-left:10px;
+    background-color:green;
+    color:lightgoldenrodyellow;
   }
