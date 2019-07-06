@@ -23,7 +23,9 @@ class Speech extends Component {
         this.state = {
             listening: false,
             // input: "",
-            recipe: {}
+            recipe: {},
+            ingredients: [],
+            instructions: []
         }
         this.toggleListen = this.toggleListen.bind(this)
         this.handleListen = this.handleListen.bind(this)
@@ -108,6 +110,7 @@ class Speech extends Component {
     //     })
     // };
 
+
     handleFormSubmit = event => {
         console.log(event);
         window.responsiveVoice.speak(this.state.recipe.title, "UK English Female", { rate: .7 }, { pitch: 2 }, { volume: 2 });
@@ -117,8 +120,15 @@ class Speech extends Component {
         API.getRecipeById(this.props.match.params.id)
             .then(res => this.setState({ recipe: res.data },
                 console.log(res.data)
-            ))
-            .catch(err => console.log(err));
+            )).catch(err => console.log(err));
+        API.scrapeRecipeById(this.props.match.params.id)
+            .then(data => {
+                console.log(data.data);
+                this.setState({
+                    instructions: data.data.instructions,
+                    ingredients: data.data.ingredients
+                })
+            })
     }
 
     render() {
@@ -134,6 +144,8 @@ class Speech extends Component {
                         summary={this.state.recipe.summary}
                         link={this.state.recipe.link}
                         thumbnail={this.state.recipe.thumbnail}
+                        ingredients={this.state.ingredients}
+                        instructions={this.state.instructions}
 
                     >
                     </ResposiveVoice>

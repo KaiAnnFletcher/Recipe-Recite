@@ -16,6 +16,9 @@ function responsiveVoice(props) {
                         <h5>Summary: </h5>
                         <p>{props.summary}</p>
                         <a href={props.link}>Link to the Recipe Website</a>
+                        <p>{props.ingredients}</p>
+                        <p>{props.instructions}</p>
+
                         {/* <form>
                             <div className="form-group">
                                 <label for="exampleFormControlTextarea1">Example text-to-speech</label>

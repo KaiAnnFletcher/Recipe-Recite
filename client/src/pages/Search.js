@@ -31,8 +31,8 @@ class Search extends Component {
             .then(data => {
                 this.setState({ data: data.data })
             })
-            .catch(err => {console.log(err)});
-        API.scrapeRecipeById(147103)
+            .catch(err => { console.log(err) });
+        API.scrapeRecipeById(this.state.data.id)
             .then(data => {
                 console.log(data.data);
             })
@@ -112,15 +112,15 @@ class Search extends Component {
                                             <p>{data.summary}</p>
 
                                         </Container>
-             
+
                                         <Link to={"/UserPage"}>
-                                        <Bookmark />
+                                            <Bookmark />
                                         </Link>
-                                        
+
                                         <Link to={"/RecipeSelect/" + data.linkid}>
-                                        <LinkBtn 
-                                        linkid={data.linkid}
-                                        />
+                                            <LinkBtn
+                                                linkid={data.linkid}
+                                            />
                                         </Link>
                                     </ ListItem>
 
