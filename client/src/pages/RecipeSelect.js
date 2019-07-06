@@ -5,7 +5,7 @@ import Bookmark from "../components/Bookmark";
 // import { Col, Row, Container } from "../components/Grid";
 import Wrapper from "../components/Wrapper";
 import "./style.css";
-
+import API from "../utils/API"
 //------------------------SPEECH RECOGNITION-----------------------------
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
@@ -23,7 +23,7 @@ class Speech extends Component {
         this.state = {
             listening: false,
             input: "",
-            title: "testing"
+            recipe: {}
         }
         this.toggleListen = this.toggleListen.bind(this)
         this.handleListen = this.handleListen.bind(this)
@@ -114,27 +114,41 @@ class Speech extends Component {
         window.responsiveVoice.speak(this.state.input, "UK English Female", { rate: 1.5 }, { pitch: 2 }, { volume: 2 });
         // window.responsiveVoice("hello world", "UK English Female")
     }
+    // component did mount will grab the id of the recipe from the url to populate component with data
+    componentDidMount() {
+        API.getRecipeById(this.props.match.params.id)
+            .then(res => this.setState({ recipe: res.data },
+                // console.log(res),
+                console.log(res.data)
+            ))
+            .catch(err => console.log(err));
+    }
 
     render() {
         return (
             <Wrapper >
-            <div className="container styleRecipeSelect">
-             <Bookmark />
- 
-                <ResposiveVoice
-                    handleInputChange={this.handleInputChange}
-                    title={this.state.title}
-                >
-                </ResposiveVoice>
-                <button onClick={this.handleFormSubmit}  className="btn btn-success">
-                    Play / Listen
-                </button>
-                <button className="btn btn-primary" onClick={this.toggleListen} > Listen </button>
-                <div id='final'></div>
+                <div className="container styleRecipeSelect">
+                    <Bookmark />
 
-            </div>
+                    <ResposiveVoice
+                        handleInputChange={this.handleInputChange}
+                        title={this.state.recipe.title}
+                        author={this.state.recipe.author}
+                        summary={this.state.recipe.summary}
+                        link={this.state.recipe.link}
+                        thumbnail={this.state.recipe.thumbnail}
+
+                    >
+                    </ResposiveVoice>
+                    <button onClick={this.handleFormSubmit} className="btn btn-success">
+                        Play / Listen
+                </button>
+                    <button className="btn btn-primary" onClick={this.toggleListen} > Listen </button>
+                    <div id='final'></div>
+
+                </div>
             </Wrapper>
-           
+
         )
     }
 }

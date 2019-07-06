@@ -10,10 +10,10 @@ function responsiveVoice(props) {
                 <Col size="md-12">
                     <div>
                         <h4>Title: {props.title}</h4>
-                        {/* <h4>Author: {props.author}</h4>
+                        <h4>Author: {props.author}</h4>
                         <h4>Summary: {props.summary}</h4>
-                        <img>Thumbnail: {props.thumbnail}</img>
-                        <h4>Link: {props.link}</h4> */}
+                        {/* <img alt="thumbnail" src={props.thumbnail}></img> */}
+                        <h4>Link: {props.link}</h4>
 
                         <form>
                             <div className="form-group">
