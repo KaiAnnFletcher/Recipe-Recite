@@ -26,7 +26,6 @@ function responsiveVoice(props) {
                                     value={props.input}
                                 ></textarea>
                             </div>
-
                         </form>
                     </div >
                 </Col>

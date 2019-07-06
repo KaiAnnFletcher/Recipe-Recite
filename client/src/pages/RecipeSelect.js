@@ -2,7 +2,7 @@
 import React, { Component } from "react"
 import ResposiveVoice from "../components/recipePage";
 import Bookmark from "../components/Bookmark";
-import { Col, Row, Container } from "../components/Grid";
+import { Container } from "../components/Grid";
 
 //------------------------SPEECH RECOGNITION-----------------------------
 
@@ -108,29 +108,30 @@ class Speech extends Component {
     handleFormSubmit = event => {
         // event.preventDefault();
         console.log(event);
-        // alert(this.state.input);
-        window.responsiveVoice.speak(this.state.input, "UK English Female");
+        console.log(this.state.input);
+        window.responsiveVoice.speak(this.state.input, "UK English Female", { rate: 1.5 }, { pitch: 2 }, { volume: 2 });
+        // window.responsiveVoice("hello world", "UK English Female")
     }
 
     render() {
         return (
             <div className="container">
-             <Bookmark />
+                <Bookmark />
                 <Container >
-                <ResposiveVoice
-                    handleInputChange={this.handleInputChange}
-                    title={this.state.title}
-                >
-                </ResposiveVoice>
-                <button onClick={this.handleFormSubmit} onClick={this.toggleListen} className="btn btn-success">
-                    Play / Listen
-                </button>
-                {/* <button className="btn btn-primary" onClick={this.toggleListen} > Listen </button> */}
-                <div id='final'></div>
+                    <ResposiveVoice
+                        handleInputChange={this.handleInputChange}
+                        title={this.state.title}
+                    >
+                    </ResposiveVoice>
+                    <button onClick={this.handleFormSubmit} className="btn btn-success">
+                        Play
+                     </button>
+                    <button className="btn btn-primary" onClick={this.toggleListen} > Listen
+                     </button>
+                    <div id='final'></div>
                 </Container>
             </div>
 
-           
         )
     }
 }
