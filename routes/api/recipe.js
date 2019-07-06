@@ -2,6 +2,7 @@ const router = require("express").Router();
 const recipeController = require("../../controllers/recipesController");
 const axios = require("axios");
 const cheerio = require("cheerio");
+const Recipe = require("../../models/recipe");
 
 // A GET route for scraping the main allrecipe page
 router.get("/scrape", function (req, res) {
@@ -12,6 +13,7 @@ router.get("/scrape", function (req, res) {
     console.log("***** scraped allrecipe main page *****");
     var $ = cheerio.load(response.data);
     let output = [];
+    let promises = [];
     //console.log($);
     // Now, we grab every h2 within an article tag, and do the following:
     $("article").each(function (i, element) {
@@ -55,26 +57,16 @@ router.get("/scrape", function (req, res) {
         .text();
 
 
-      if (result.title === '') {
-
-      } else {
-        result.id = result.link.match(/\d{4,6}/g)[0];
-        output.push(result);
+      if (result.title !== '') {
+        const promise = Recipe
+        .findOneAndUpdate(result, result, {upsert:true})
+        promises.push(promise);
+        // .then(dbModel => output.push(dbModel));
       }
-      // Create a new Article using the `result` object built from scraping
-      // db.Article.create(result)
-      //   .then(function(dbArticle) {
-      //     // View the added result in the console
-      //     //console.log(dbArticle);
-      //   })
-      //   .catch(function(err) {
-      //     // If an error occurred, log it
-      //     console.log(err);
-      //   });
     });
-
-
-    res.json(output);
+    Promise.all(promises).then((data) => {
+      res.json(data)
+    })
 
   });
 });
@@ -97,6 +89,7 @@ router.get("/search/:search", function (req, res) {
     console.log("***** scraped specific page *****");
     var $ = cheerio.load(response.data);
     let output = [];
+    let promises = [];
     //console.log($);
     // Now, we grab every h2 within an article tag, and do the following:
     $("article").each(function (i, element) {
@@ -139,17 +132,16 @@ router.get("/search/:search", function (req, res) {
         .children("h4")
         .text();
 
-
-      if (result.title === '') {
-
-      } else {
-        result.id = result.link.match(/\d{4,6}/g)[0];
-        output.push(result);
+      if (result.title !== '') {
+        const promise = Recipe
+        .findOneAndUpdate(result, result, {upsert:true})
+        promises.push(promise);
+        // .then(dbModel => output.push(dbModel));
       }
     });
-
-
-    res.json(output);
+    Promise.all(promises).then((data) => {
+      res.json(data)
+    })
   })
 })
 
