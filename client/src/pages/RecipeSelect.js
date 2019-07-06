@@ -118,10 +118,10 @@ class Speech extends Component {
                     handleInputChange={this.handleInputChange}
                 >
                 </ResposiveVoice>
-                <button onClick={this.handleFormSubmit} className="btn btn-success">
-                    Play
-          </button>
-                <button className="btn btn-primary" onClick={this.toggleListen}> Listen </button>
+                <button onClick={this.handleFormSubmit} onClick={this.toggleListen} className="btn btn-success">
+                    Play / Listen
+                </button>
+                {/* <button className="btn btn-primary" onClick={this.toggleListen} > Listen </button> */}
                 <div id='final'></div>
             </div>
         )
