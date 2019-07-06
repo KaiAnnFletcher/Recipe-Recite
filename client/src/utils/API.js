@@ -12,5 +12,8 @@ export default {
     scrapeBySearch: function(searchString) {
         var parsedString = searchString.replace(/ /g, "%20");
         return axios.get("/api/recipe/search/" + parsedString);
+    },
+    getRecipeById: function (id) {
+        return axios.get("api/recipe/" + id)        
     }
 }
