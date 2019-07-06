@@ -132,6 +132,8 @@ router.get("/search/:search", function (req, res) {
         .children("h4")
         .text();
 
+      result.id = result.link.match(/\d{4,6}/g)[0];
+
       if (result.title !== '') {
         const promise = Recipe
         .findOneAndUpdate(result, result, {upsert:true})
