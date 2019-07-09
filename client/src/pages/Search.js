@@ -4,22 +4,15 @@ import SearchForm from "../components/SearchForm";
 import { List, ListItem } from "../components/List";
 import API from "../utils/API";
 import LinkBtn from "../components/LinkBtn";
-// import sampleData from "../utils/sampleData.json";
 import Bookmark from "../components/Bookmark";
 import { Link } from "react-router-dom";
-// import RecipePage from "../components/recipePage";
-// import cheerio from "cheerio";
 
 
 class Search extends Component {
     state = {
         search: "",
-        // results: sampleData,
         input: "",
         data: [],
-
-
-
     };
 
     handleInputChange = event => {
@@ -53,22 +46,6 @@ class Search extends Component {
             .then(fun)
             .catch(err => { console.log(err) })
     }
-
-
-    //Form Submission to search for recipe 
-
-    // handleFormSubmit = event => {
-    //     event.preventDefault();
-
-    //     API.scrapeBySearch(this.state.search)
-    //     .then(res => {
-    //         this.setState({
-    //             results: res.data.items
-    //         });
-    //     })
-    //     .catch(err => console.log(err));
-    // }
-
 
     //handle clicking on a specific result
     handleViewClick = link => {
