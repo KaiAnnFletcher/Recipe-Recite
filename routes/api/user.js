@@ -2,7 +2,7 @@ const router = require("express").Router();
 const usersController = require("../../controllers/userscontroller");
 const User = require('../../models/user.js');
 const jwt = require('jsonwebtoken');
-
+const withAuth = require('../../middleware');
 
 router.post('/authenticate', function(req, res) {
   const { username, password } = req.body;
@@ -56,6 +56,10 @@ router.post('/register', function(req, res) {
       res.status(200).send("Welcome to the club!");
     }
   });
+});
+
+router.get('/checkToken', withAuth, function(req, res) {
+  res.sendStatus(200);
 });
 
 router.route("/")
