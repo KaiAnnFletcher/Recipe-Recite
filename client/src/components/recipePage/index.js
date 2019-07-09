@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Col, Row, Container } from "../Grid";
+import "./style.css";
 
 
 function responsiveVoice(props) {
@@ -16,8 +17,34 @@ function responsiveVoice(props) {
                         <h5>Summary: </h5>
                         <p>{props.summary}</p>
                         <a href={props.link}>Link to the Recipe Website</a>
-                        <p>{props.ingredients}</p>
-                        <p>{props.instructions}</p>
+                    </div >
+                    
+                    <div  className="IngredientStyle">
+                    <br></br>
+                    <p><b>INGREDIENTS</b></p>
+                            <p>{props.ingredients1}</p>
+                            <p>{props.ingredients2}</p>
+                            <p>{props.ingredients3}</p>
+                            <p>{props.ingredients4}</p>
+                            <p>{props.ingredients5}</p>
+                            <p>{props.ingredients6}</p>
+                            <p>{props.ingredients7}</p>
+                            <p>{props.ingredients8}</p>
+                            <p>{props.ingredients9}</p>
+                            <p>{props.ingredients10}</p>
+                    </div>
+
+                    <div  className="InstructionsStyle">
+                    <p><b>STEPS</b></p>
+                            <p>{props.instructions1}</p>
+                            <p>{props.instructions2}</p>
+                            <p>{props.instructions3}</p>
+                            <p>{props.instructions4}</p>
+                            <p>{props.instructions5}</p>
+                            <p>{props.instructions6}</p>
+                            <p>{props.instructions7}</p>
+                            <p>{props.instructions8}</p>
+                    </div>
 
                         {/* <form>
                             <div className="form-group">
@@ -31,7 +58,7 @@ function responsiveVoice(props) {
                                 ></textarea>
                             </div>
                         </form> */}
-                    </div >
+
                 </Col>
             </Row>
         </Container >

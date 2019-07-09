@@ -4,7 +4,6 @@ import "./style.css";
 function SearchForm(props) {
     return (
 
-
 <div class="search ">
   <div class="search-container">
   <form className="search styleSearch">
