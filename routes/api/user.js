@@ -1,11 +1,53 @@
 const router = require("express").Router();
 const usersController = require("../../controllers/userscontroller");
 const User = require('../../models/user.js');
+const jwt = require('jsonwebtoken');
+
+
+router.post('/authenticate', function(req, res) {
+  const { username, password } = req.body;
+  User.findOne({ username }, function(err, user) {
+    if (err) {
+      console.error(err);
+      res.status(500)
+        .json({
+        error: 'Internal error please try again'
+      });
+    } else if (!user) {
+      res.status(401)
+        .json({
+          error: 'Incorrect username or password'
+        });
+    } else {
+      user.isCorrectPassword(password, function(err, same) {
+        if (err) {
+          res.status(500)
+            .json({
+              error: 'Internal error please try again'
+          });
+        } else if (!same) {
+          res.status(401)
+            .json({
+              error: 'Incorrect username or password'
+          });
+        } else {
+          // Issue token
+          const payload = { username };
+          const token = jwt.sign(payload, secret, {
+            expiresIn: '1h'
+          });
+          res.cookie('token', token, { httpOnly: true })
+            .sendStatus(200);
+        }
+      });
+    }
+  });
+});
 
 // POST route to register a user
-router.post('/api/register', function(req, res) {
-  const { email, password } = req.body;
-  const user = new User({ email, password });
+router.post('/register', function(req, res) {
+  const { username, password } = req.body;
+  const user = new User({ username, password });
   user.save(function(err) {
     if (err) {
       res.status(500)
