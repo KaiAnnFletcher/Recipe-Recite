@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Col, Row, Container } from "../Grid";
+import "./style.css";
 
 
 function responsiveVoice(props) {

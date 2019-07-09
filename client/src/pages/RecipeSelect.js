@@ -1,6 +1,8 @@
 
 import React, { Component } from "react"
+// import RecipeSelectTemplate from "../components/RecipeSelectTemplate";
 import ResposiveVoice from "../components/recipePage";
+import { Link } from "react-router-dom";
 import Bookmark from "../components/Bookmark";
 // import { Col, Row, Container } from "../components/Grid";
 import Wrapper from "../components/Wrapper";
@@ -147,11 +149,12 @@ class Speech extends Component {
     componentDidMount() {
         API.getRecipeById(this.props.match.params.id)
             .then(res => this.setState({ recipe: res.data },
-                console.log(res.data)
+                // console.log(res.data)
             )).catch(err => console.log(err));
         API.scrapeRecipeById(this.props.match.params.id)
             .then(data => {
-                console.log(data.data);
+                // console.log(data.data);
+                console.log(data.data.instructions)
                 this.setState({
                     instructions: data.data.instructions,
                     ingredients: data.data.ingredients
@@ -165,20 +168,20 @@ class Speech extends Component {
             < Wrapper >
                 <div className="container styleRecipeSelect">
 
-                    <Bookmark />
+                    <Link to={"/UserPage"}>
+                        <Bookmark />
+                    </Link>
 
                     <ResposiveVoice
-                        // handleInputChange={this.handleInputChange}
                         title={this.state.recipe.title}
                         author={this.state.recipe.author}
                         summary={this.state.recipe.summary}
                         link={this.state.recipe.link}
                         thumbnail={this.state.recipe.thumbnail}
-                        ingredients={this.state.ingredients}
                         instructions={this.state.instructions}
-
-                    >
-                    </ResposiveVoice>
+                        ingredients={this.state.ingredients}
+                    />
+         
                     <br></br>
                     <button onClick={this.toggleListen} className="btn btn-success">
                         Play / Listen
@@ -190,8 +193,6 @@ class Speech extends Component {
                         Resume
                 </button>
 
-                    {/* <button className="btn btn-primary" onClick={this.toggleListen} > Listen </button> */}
-                    <div id='final'></div>
 
                 </div>
             </Wrapper >

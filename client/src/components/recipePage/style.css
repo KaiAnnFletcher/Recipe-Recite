@@ -1,0 +1,15 @@
+.IngredientStyle{
+    /* border:1px solid grey; */
+    margin:10px;
+    padding:10px;
+}
+
+
+.InstructionsStyle{
+    border:1px solid grey;
+    padding:10px;
+}
+
+.InstructionsStyle p{
+
+}
