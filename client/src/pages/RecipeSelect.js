@@ -1,6 +1,8 @@
 
 import React, { Component } from "react"
+// import RecipeSelectTemplate from "../components/RecipeSelectTemplate";
 import ResposiveVoice from "../components/recipePage";
+import { Link } from "react-router-dom";
 import Bookmark from "../components/Bookmark";
 // import { Col, Row, Container } from "../components/Grid";
 import Wrapper from "../components/Wrapper";
@@ -112,18 +114,19 @@ class Speech extends Component {
 
 
     handleFormSubmit = event => {
-        console.log(event);
+        // console.log(event);
         window.responsiveVoice.speak(this.state.recipe.title, "UK English Female", { rate: .7 }, { pitch: 2 }, { volume: 2 });
     }
     // component did mount will grab the id of the recipe from the url to populate component with data
     componentDidMount() {
         API.getRecipeById(this.props.match.params.id)
             .then(res => this.setState({ recipe: res.data },
-                console.log(res.data)
+                // console.log(res.data)
             )).catch(err => console.log(err));
         API.scrapeRecipeById(this.props.match.params.id)
             .then(data => {
-                console.log(data.data);
+                // console.log(data.data);
+                console.log(data.data.instructions)
                 this.setState({
                     instructions: data.data.instructions,
                     ingredients: data.data.ingredients
@@ -135,26 +138,46 @@ class Speech extends Component {
         return (
             <Wrapper >
                 <div className="container styleRecipeSelect">
-                    <Bookmark />
+
+                    <Link to={"/UserPage"}>
+                        <Bookmark />
+                    </Link>
 
                     <ResposiveVoice
-                        // handleInputChange={this.handleInputChange}
                         title={this.state.recipe.title}
                         author={this.state.recipe.author}
                         summary={this.state.recipe.summary}
                         link={this.state.recipe.link}
                         thumbnail={this.state.recipe.thumbnail}
-                        ingredients={this.state.ingredients}
-                        instructions={this.state.instructions}
+                    
+                        // handleInputChange={this.handleInputChange}
+                        ingredients1={this.state.ingredients[0]}
+                        ingredients2={this.state.ingredients[1]}
+                        ingredients3={this.state.ingredients[2]}
+                        ingredients4={this.state.ingredients[3]}
+                        ingredients5={this.state.ingredients[4]}
+                        ingredients6={this.state.ingredients[5]}
+                        ingredients7={this.state.ingredients[6]}
+                        ingredients8={this.state.ingredients[7]}
+                        ingredients9={this.state.ingredients[8]}
+                        ingredients10={this.state.ingredients[9]}
 
-                    >
-                    </ResposiveVoice>
+                        instructions1={this.state.instructions[0]}
+                        instructions2={this.state.instructions[1]}
+                        instructions3={this.state.instructions[2]}
+                        instructions4={this.state.instructions[3]}
+                        instructions5={this.state.instructions[4]}
+                        instructions6={this.state.instructions[5]}
+                        instructions7={this.state.instructions[6]}
+                        instructions8={this.state.instructions[7]}
+                    />
+         
                     <br></br>
                     <button onClick={this.handleFormSubmit} className="btn btn-success">
                         Play
                 </button>
                     <button className="btn btn-primary" onClick={this.toggleListen} > Listen </button>
-                    <div id='final'></div>
+                <div id='final'></div>
 
                 </div>
             </Wrapper>

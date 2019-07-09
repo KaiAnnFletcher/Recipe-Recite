@@ -7,7 +7,7 @@ function Bookmark(props) {
         <button className="BookmarkBtn" {...props}>
             <span>Bookmark
                 <Link className="navbar-brand" to="RecipeSelect"></Link>              
-                <Link to="/UserPage" className={window.location.pathname === "/UserPage" ? "nav-link active" : "nav-link"}></Link>
+                {/* <Link to="/UserPage" className={window.location.pathname === "/UserPage" ? "nav-link active" : "nav-link"}></Link> */}
             </span>
         </button>
     );
