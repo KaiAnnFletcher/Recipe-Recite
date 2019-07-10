@@ -30,11 +30,11 @@ class App extends Component {
             <div className='bar'></div>
             <div className='bar'></div>
             <div className='bar'></div>
-            <img  alt="logo" id="Apptitle" src="https://i.ibb.co/JjXYSBh/logo.png"></img>
+            <img alt="logo" id="Apptitle" src="https://i.ibb.co/JjXYSBh/logo.png"></img>
           </div>
-          
-      </div>
-      
+
+        </div>
+
 
         <div id='App'>
           <Router>

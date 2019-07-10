@@ -4,9 +4,14 @@ import "./style.css";
 function SearchForm(props) {
     return (
 
+<<<<<<< HEAD
 
 <div className="search ">
   <div className="search-container">
+=======
+<div class="search ">
+  <div class="search-container">
+>>>>>>> master
   <form className="search styleSearch">
             <div className="form-group">
                 <label htmlFor="title"></label>

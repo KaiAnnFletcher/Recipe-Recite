@@ -1,6 +1,7 @@
 
 import React, { Component } from "react"
 import ResposiveVoice from "../components/recipePage";
+import { Link } from "react-router-dom";
 import Bookmark from "../components/Bookmark";
 // import { Col, Row, Container } from "../components/Grid";
 import Wrapper from "../components/Wrapper";
@@ -34,8 +35,30 @@ class Speech extends Component {
     toggleListen() {
         this.setState({
             listening: !this.state.listening
-        }, this.handleListen)
+        }, this.handleListen);
+        console.log(" ---- Summary -----", this.state.recipe.summary)
+        console.log(" ---- INSTTRUCTIONS -----", this.state.instructions)
+        console.log(" ---- INGREDIENTS -----", this.state.ingredients)
+
+        let speech = "";
+        speech += this.state.recipe.title + this.state.recipe.summary
+        speech += "Here are the ingridients that you will need ."
+
+        for (var j = 0; j < this.state.ingredients.length; j++) {
+
+            speech += this.state.ingredients[j];
+        }
+
+        speech += "Follow these instructions to prepare your meal .";
+        for (var i = 0; i < this.state.instructions.length; i++) {
+            speech += this.state.instructions[i];
+        }
+
+        window.responsiveVoice.speak(speech, "UK English Female", { rate: 1.2 }, { pitch: 2 }, { volume: 2 });
     }
+
+
+
 
     handleListen() {
         console.log('listening?', this.state.listening)
@@ -68,7 +91,6 @@ class Speech extends Component {
                 if (event.results[i].isFinal) finalTranscript += transcript + ' ';
                 else interimTranscript += transcript;
             }
-            document.getElementById('final').innerHTML = interimTranscript
 
             console.log("1 " + interimTranscript);
             console.log("2 " + finalTranscript);
@@ -76,54 +98,52 @@ class Speech extends Component {
             //-------------------------COMMANDS------------------------------------
 
             const transcriptArr = finalTranscript.split(' ')
-            const stopCmd = transcriptArr.splice(-3, -1)
-            console.log('stopCmd', stopCmd);
+            const stopCmd = transcriptArr.slice(-3, -2)
+            console.log('stopCmd -----', stopCmd);
             // console.log(stopCmd[0]);
             // console.log(stopCmd[1]);
-
-            if (stopCmd[0] === 'stop' && stopCmd[1] === 'listening') {
-                recognition.stop()
-                recognition.onend = () => {
-                    console.log('Stopped listening per command');
-                    const finalText = transcriptArr.slice(0, -3).join(' ')
-                    document.getElementById('final').innerHTML = finalText
+            for (var i = 0; i < stopCmd.length; i++) {
+                console.log("   **********   " + stopCmd[i]);
+                if (stopCmd[i] === 'stop') {
+                    recognition.stop();
+                    recognition.onend = () => {
+                        console.log('Stopped listening per command');
+                        window.responsiveVoice.cancel();
+                    }
+                } else if (stopCmd[i] === 'pause') {
+                    recognition.onresult = () => {
+                        console.log(" ##########   pause works   ######### ");
+                        window.responsiveVoice.pause().then(function (e) {
+                            recognition.stop();
+                            recognition.onend = () => {
+                                console.log('Paused listening per command, now it will start listening again');
+                                recognition.start();
+                            }
+                        })
+                    }
+                } else if (stopCmd[i] === 'resume') {
+                    recognition.onresult = () => {
+                        console.log(" ##########   RESUME works   ######### ")
+                        window.responsiveVoice.resume();
+                    }
                 }
-            } else
-                if (stopCmd[0] === 'pause') {
-                    console.log("pause works");
-                    window.responsiveVoice.pause();
-                } else if (stopCmd[0] === 'resume') {
-                    window.responsiveVoice.resume();
-                }
+            }
         }
 
         recognition.onerror = event => {
             console.log("Error occurred in recognition: " + event.error)
         }
     }
-    // -------------------------RESPONSIVE VOICE JS------------------------------------
-    // handleInputChange = event => {
-    //     console.log(event.target.value);
-
-    //     this.setState({
-    //         input: event.target.value,
-    //     })
-    // };
-
-
-    handleFormSubmit = event => {
-        console.log(event);
-        window.responsiveVoice.speak(this.state.recipe.title, "UK English Female", { rate: .7 }, { pitch: 2 }, { volume: 2 });
-    }
     // component did mount will grab the id of the recipe from the url to populate component with data
     componentDidMount() {
         API.getRecipeById(this.props.match.params.id)
             .then(res => this.setState({ recipe: res.data },
-                console.log(res.data)
+                // console.log(res.data)
             )).catch(err => console.log(err));
         API.scrapeRecipeById(this.props.match.params.id)
             .then(data => {
-                console.log(data.data);
+                // console.log(data.data);
+                console.log(data.data.instructions)
                 this.setState({
                     instructions: data.data.instructions,
                     ingredients: data.data.ingredients
@@ -131,33 +151,31 @@ class Speech extends Component {
             })
     }
 
+
     render() {
         return (
-            <Wrapper >
+            < Wrapper >
                 <div className="container styleRecipeSelect">
-                    <Bookmark />
+
+                    <Link to={"/UserPage"}>
+                        <Bookmark />
+                    </Link>
+
+                    <button onClick={this.toggleListen} className="btn btn-success playBtn">
+                        Play
+                    </button>
 
                     <ResposiveVoice
-                        // handleInputChange={this.handleInputChange}
                         title={this.state.recipe.title}
                         author={this.state.recipe.author}
                         summary={this.state.recipe.summary}
                         link={this.state.recipe.link}
                         thumbnail={this.state.recipe.thumbnail}
-                        ingredients={this.state.ingredients}
                         instructions={this.state.instructions}
-
-                    >
-                    </ResposiveVoice>
-                    <br></br>
-                    <button onClick={this.handleFormSubmit} className="btn btn-success">
-                        Play
-                </button>
-                    <button className="btn btn-primary" onClick={this.toggleListen} > Listen </button>
-                    <div id='final'></div>
-
+                        ingredients={this.state.ingredients}
+                    />
                 </div>
-            </Wrapper>
+            </Wrapper >
 
         )
     }

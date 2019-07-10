@@ -1,7 +1,7 @@
 .BookmarkBtn {
     float: right;
     border-radius:5px;
-    padding:0px;
-    padding-left:10px;
+    padding:10px;
+    /* padding-left:10px; */
     background-color:lightgoldenrodyellow;
   }

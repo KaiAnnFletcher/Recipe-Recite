@@ -5,7 +5,7 @@ import "./style.css";
 function LinkBtn(props) {
   return (
     <button className="linkBtn" onClick={props.onClick}>
-      <span>Select
+      <span> Select
         <Link className="navbar-brand" to="RecipeSelect"></Link>
       </span>
     </button>
