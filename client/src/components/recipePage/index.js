@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Col, Row, Container } from "../Grid";
+// import { Link } from "react-router-dom";
 import "./style.css";
 
 
@@ -18,6 +19,9 @@ function responsiveVoice(props) {
                         <h5>Summary: </h5>
                         <p>{props.summary}</p>
 
+                        <br></br>
+                        <br></br>
+
                         <h5>Ingredients: </h5>
                         <ul>
                             {props.ingredients.map(event => {
@@ -25,7 +29,7 @@ function responsiveVoice(props) {
                             })}
                         </ul>
 
-                        <h5>instructions: </h5>
+                        <h5>Instructions: </h5>
                         <ul>
                             {props.instructions.map(event => {
                                 return <li>{event}</li>
@@ -34,7 +38,11 @@ function responsiveVoice(props) {
                     </div >
                 </Col>
             </Row>
-        </Container >
+            <br></br>
+            {/* <Link to={"/search"}>
+                <button className="btn btn-primary"> Go back </button>
+            </Link> */}
+        </Container>
 
     )
 }

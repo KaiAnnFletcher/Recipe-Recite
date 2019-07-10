@@ -1,6 +1,5 @@
 
 import React, { Component } from "react"
-// import RecipeSelectTemplate from "../components/RecipeSelectTemplate";
 import ResposiveVoice from "../components/recipePage";
 import { Link } from "react-router-dom";
 import Bookmark from "../components/Bookmark";
@@ -43,14 +42,14 @@ class Speech extends Component {
 
         let speech = "";
         speech += this.state.recipe.title + this.state.recipe.summary
-        speech += "Here are the ingridients that you will need."
+        speech += "Here are the ingridients that you will need ."
 
         for (var j = 0; j < this.state.ingredients.length; j++) {
 
             speech += this.state.ingredients[j];
         }
 
-        speech += "Follow these instructions to prepare your meal.";
+        speech += "Follow these instructions to prepare your meal .";
         for (var i = 0; i < this.state.instructions.length; i++) {
             speech += this.state.instructions[i];
         }
@@ -92,7 +91,6 @@ class Speech extends Component {
                 if (event.results[i].isFinal) finalTranscript += transcript + ' ';
                 else interimTranscript += transcript;
             }
-            document.getElementById('final').innerHTML = interimTranscript
 
             console.log("1 " + interimTranscript);
             console.log("2 " + finalTranscript);
@@ -100,26 +98,35 @@ class Speech extends Component {
             //-------------------------COMMANDS------------------------------------
 
             const transcriptArr = finalTranscript.split(' ')
-            const stopCmd = transcriptArr.slice(0, -3);
-            console.log('stopCmd ----- ', stopCmd);
-
+            const stopCmd = transcriptArr.slice(-3, -2)
+            console.log('stopCmd -----', stopCmd);
+            // console.log(stopCmd[0]);
+            // console.log(stopCmd[1]);
             for (var i = 0; i < stopCmd.length; i++) {
-                console.log("**********" + stopCmd[i]);
-
-                if (stopCmd[i] === 'stop' && stopCmd[i + 1] === 'listening') {
-                    recognition.stop()
+                console.log("   **********   " + stopCmd[i]);
+                if (stopCmd[i] === 'stop') {
+                    recognition.stop();
                     recognition.onend = () => {
                         console.log('Stopped listening per command');
-                        const finalText = transcriptArr.slice(0, -3).join(' ')
-                        document.getElementById('final').innerHTML = finalText
+                        window.responsiveVoice.cancel();
                     }
-                } else
-                    if (stopCmd[i] === 'pause') {
-                        console.log("pause works");
-                        window.responsiveVoice.pause();
-                    } else if (stopCmd[i] === 'resume') {
+                } else if (stopCmd[i] === 'pause') {
+                    recognition.onresult = () => {
+                        console.log(" ##########   pause works   ######### ");
+                        window.responsiveVoice.pause().then(function (e) {
+                            recognition.stop();
+                            recognition.onend = () => {
+                                console.log('Paused listening per command, now it will start listening again');
+                                recognition.start();
+                            }
+                        })
+                    }
+                } else if (stopCmd[i] === 'resume') {
+                    recognition.onresult = () => {
+                        console.log(" ##########   RESUME works   ######### ")
                         window.responsiveVoice.resume();
                     }
+                }
             }
         }
 
@@ -127,24 +134,6 @@ class Speech extends Component {
             console.log("Error occurred in recognition: " + event.error)
         }
     }
-    // -------------------------RESPONSIVE VOICE JS------------------------------------
-    // handleFormSubmit = event => {
-    //     console.log(event);
-    //     console.log(" ---- INSTTRUCTIONS -----", this.state.instructions)
-    //     console.log(" ---- INGREDIENTS -----", this.state.ingredients)
-    // window.responsiveVoice.speak(this.state.recipe.summary, "UK English Female", { rate: .8 }, { pitch: 2 }, { volume: 2 });
-    // }
-
-    pausebutton() {
-        window.responsiveVoice.pause();
-
-    }
-    resumebutton() {
-        window.responsiveVoice.resume();
-
-    }
-
-
     // component did mount will grab the id of the recipe from the url to populate component with data
     componentDidMount() {
         API.getRecipeById(this.props.match.params.id)
@@ -172,6 +161,10 @@ class Speech extends Component {
                         <Bookmark />
                     </Link>
 
+                    <button onClick={this.toggleListen} className="btn btn-success playBtn">
+                        Play
+                    </button>
+
                     <ResposiveVoice
                         title={this.state.recipe.title}
                         author={this.state.recipe.author}
@@ -181,19 +174,6 @@ class Speech extends Component {
                         instructions={this.state.instructions}
                         ingredients={this.state.ingredients}
                     />
-         
-                    <br></br>
-                    <button onClick={this.toggleListen} className="btn btn-success">
-                        Play / Listen
-                </button>
-                    <button onClick={this.pausebutton} className="btn btn-primary">
-                        Pause
-                </button>
-                    <button onClick={this.resumebutton} className="btn btn-danger5">
-                        Resume
-                </button>
-
-
                 </div>
             </Wrapper >
 
