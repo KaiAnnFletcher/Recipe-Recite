@@ -160,7 +160,6 @@ class Speech extends Component {
             console.error(err);
             });
     }
-    }
 
 
     render() {
