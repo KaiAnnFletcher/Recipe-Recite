@@ -9,8 +9,10 @@ import Register from "../components/Register";
 
 class User extends Component {
     state = {
-      username:"",
-      password:"",
+      regusername:"",
+      regpassword:"",
+      logusername:"",
+      logpassword:"",
     };
 
     handleInputChange = (event) => {
@@ -31,21 +33,28 @@ class User extends Component {
     //         })
     // }
 
-    handleRegisterSubmit = event => {
+    handleRegisterSubmit = (event) => {
         event.preventDefault();
-        let user = data => {
-            this.setState({ data: data.data })
-        }
+        API.registerUser({
+            username: this.state.regusername,
+            password: this.state.regpassword
+        })
     };
 
     handleLoginSubmit = event => {
         event.preventDefault();
-        let login = results => {
-            this.setState({ results: results.results })
+        API.loginUser({
+            username: this.state.logusername,
+            password: this.state.logpassword
+        })
+        .then(res => {
+        if (res.status === 200) {
+        this.props.history.push('/');
+        } else {
+        const error = new Error(res.error);
+        throw error;
         }
-        // API.searchByUser(this.state.search)
-        //     .then(user)
-        //     .catch(err => { console.log(err) })
+    })
     };
 
     // //handle user saving 
@@ -62,14 +71,17 @@ class User extends Component {
           <Wrapper>
         
                   <Register
-                      handleRegisterSubmit={this.handleRegisterSubmit}
-                      handleRegisterChange={this.handleInputChange}
-                  />
+                    handleRegisterSubmit={this.handleRegisterSubmit}
+                    handleRegisterChange={this.handleInputChange}
+                    username={this.state.regusername}
+                    password={this.state.regpassword}
+                    />
                      
                   <Login
-                    search={this.state.search}
-                    // handleLoginSubmit={this.handleLoginSubmit}
+                    handleLoginSubmit={this.handleLoginSubmit}
                     handleLoginChange={this.handleInputChange}
+                    username={this.state.logusername}
+                    password={this.state.logpassword}
                     />
          
 

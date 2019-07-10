@@ -1,4 +1,3 @@
-import React from "react";
 import React, { Component } from 'react';
 import "./style.css";
 
@@ -12,7 +11,7 @@ return (
                 <label htmlFor="title"><h4>LOGIN</h4></label>
                 <input
                     onChange={props.handleLoginChange}
-                    name="username"
+                    name="logusername"
                     type="text"
                     placeholder="Username"
                     value={props.username}
@@ -20,7 +19,7 @@ return (
                 />
                 <input
                     onChange={props.handleLoginChange}
-                    name="password"
+                    name="logpassword"
                     type="password"
                     placeholder="Password"
                     value={props.password}

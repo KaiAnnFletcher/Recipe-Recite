@@ -33,7 +33,7 @@ router.post('/authenticate', function(req, res) {
         } else {
           // Issue token
           const payload = { username };
-          const token = jwt.sign(payload, secret, {
+          const token = jwt.sign(payload, process.env.SECRET, {
             expiresIn: '1h'
           });
           res.cookie('token', token, { httpOnly: true })
@@ -46,6 +46,7 @@ router.post('/authenticate', function(req, res) {
 
 // POST route to register a user
 router.post('/register', function(req, res) {
+  console.log(req.body);
   const { username, password } = req.body;
   const user = new User({ username, password });
   user.save(function(err) {

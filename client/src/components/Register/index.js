@@ -14,7 +14,7 @@ return (
                 <label htmlFor="title"><h4>REGISTER</h4></label>
                 <input
                     onChange={props.handleRegisterChange}
-                    name="username"
+                    name="regusername"
                     type="text"
                     placeholder="choose a username"
                     value={props.username}
@@ -22,7 +22,7 @@ return (
                 />
                 <input
                     onChange={props.handleRegisterChange}
-                    name="password"
+                    name="regpassword"
                     type="password"
                     placeholder="choose a password"
                     value={props.password}
