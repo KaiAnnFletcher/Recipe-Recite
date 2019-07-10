@@ -1,32 +1,35 @@
-.login{
+.register{
     position: absolute;
-    right:0px;
+    left:0px;
     top:20px;
     background:rgba(0,0,0, .2);
     border-radius:5px;
     padding:20px;
+
 }
 
-.styleLogin{
-        border:2px solid white;
+.styleregister{
+    border:2px solid white;
 }
 
-.login label{
+.register label{
     color:white;
     margin-left:11px;
 }
 
-.login input{
+.register input{
 margin:10px;
 border-radius:5px;
 }
 
-.login button{
+.register button{
 float:right;
 margin-right:11px;
 }
 
 
+
 @media only screen and (max-width: 640px) {
 
+  
   };

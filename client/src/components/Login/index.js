@@ -1,14 +1,15 @@
 import React from "react";
 // import React, { Component } from 'react';
+import "./style.css";
 
 function Login(props) {
 return (
 
-<div className="login ">
+<div className="login">
   <div className="login-container">
   <form className="login styleLogin">
             <div className="form-group">
-                <label htmlFor="title"></label>
+                <label htmlFor="title"><h4>LOGIN</h4></label>
                 <input
                     value={props.search}
                     onChange={props.handleLoginChange}

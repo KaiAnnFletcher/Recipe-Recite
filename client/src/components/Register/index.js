@@ -1,14 +1,15 @@
 import React from "react";
 // import React, { Component } from 'react';
+import "./style.css";
 
 function Register(props) {
 return (
 
-<div className="register ">
+<div className="register">
   <div className="register-container">
   <form className="register styleregister">
             <div className="form-group">
-                <label htmlFor="title"></label>
+                <label htmlFor="title"><h4>REGISTER</h4></label>
                 <input
                     onChange={props.handleRegisterChange}
                     name="register"

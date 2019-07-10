@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Col, Row, Container } from "../components/Grid";
+// import { Col, Row, Container } from "../components/Grid";
+import Wrapper from "../components/Wrapper";
 import { List, ListItem } from "../components/List";
 import { Link } from "react-router-dom";
 import API from "../utils/API";
@@ -61,7 +62,7 @@ class User extends Component {
 
     render() {
         return (
-          <Container>
+          <Wrapper>
         
                   <Register
                       handleRegisterSubmit={this.handleRegisterSubmit}
@@ -75,7 +76,7 @@ class User extends Component {
                     />
          
 
-            </Container>
+            </Wrapper>
         )
     }
 }
