@@ -1,7 +1,12 @@
-.styleRecipeSelect{
+.styleRecipeSelect {
     margin-top: 10%;
-    background:white;
-    border-radius:5px;
+    background: white;
+    border-radius: 5px;
     padding: 20px;
 }
 
+.playBtn {
+    float: right;
+    border-radius: 5px;
+    padding: 10px;
+}
