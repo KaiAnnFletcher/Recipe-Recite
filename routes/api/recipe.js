@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const recipeController = require("../../controllers/recipesController");
+const recipeController = require("../../controllers/recipescontroller");
 const axios = require("axios");
 const cheerio = require("cheerio");
 const Recipe = require("../../models/recipe");
