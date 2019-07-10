@@ -5,8 +5,8 @@ function SearchForm(props) {
     return (
 
 
-<div class="search ">
-  <div class="search-container">
+<div className="search ">
+  <div className="search-container">
   <form className="search styleSearch">
             <div className="form-group">
                 <label htmlFor="title"></label>
@@ -21,7 +21,7 @@ function SearchForm(props) {
                 className="btn searchBtn" 
                 type="submit" 
                 onClick={props.handleFormSubmit}>
-                    <i class="fa fa-search"></i>
+                    <i className="fa fa-search"></i>
                 </button>
             </div>
         </form>

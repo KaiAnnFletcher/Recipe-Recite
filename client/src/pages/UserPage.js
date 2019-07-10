@@ -1,28 +1,113 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { Col, Row, Container } from "../components/Grid";
+import { List, ListItem } from "../components/List";
+import { Link } from "react-router-dom";
+import API from "../utils/API";
+import Login from "../components/Login";
+import Register from "../components/Register";
 
-class Login extends Component {
-  constructor() {
-    super();
-    this.state = {
-      message: 'Loading...'
+class User extends Component {
+    state = {
+      // register:"",
+      // regPassword:"",
+      username:"",
+      password:"",
+    };
+
+    handleRegisterChange = event => {
+        this.setState({ register: event.target.value });
+    };
+
+    handleLoginChange = event => {
+        this.setState({ username: event.target.value });
+    };
+    // componentDidMount() {
+    //     API.searchAllUsers()
+    //         .then(results => {
+    //             this.setState({  results: results.results})
+    //         })
+    //         .catch(err => { console.log(err) });
+    //     API.searchAllUserById(this.state.results.id)
+    //         .then(results => {
+    //             console.log(results.results);
+    //         })
+    // }
+
+    handleRegisterSubmit = event => {
+        event.preventDefault();
+        let user = data => {
+            this.setState({ data: data.data })
+        }
+    };
+
+    handleLoginSubmit = event => {
+        event.preventDefault();
+        let login = results => {
+            this.setState({ results: results.results })
+        }
+        // API.searchByUser(this.state.search)
+        //     .then(user)
+        //     .catch(err => { console.log(err) })
+    };
+
+    // //handle user saving 
+    // handleSaveUser = item => {
+    //     API.saveUser({
+    //      //write code
+    //     })
+    //         .then(res => console.log("saved "))
+    //         .catch(err => console.log(err));
+    // }
+
+    render() {
+        return (
+          <Container>
+        
+                  <Register
+                      handleRegisterSubmit={this.handleRegisterSubmit}
+                      handleRegisterChange={this.handleRegisterChange}
+                  />
+                     
+                  <Login
+                    search={this.state.search}
+                    // handleLoginSubmit={this.handleLoginSubmit}
+                    handleLoginChange={this.handleLoginChange}
+                    />
+         
+
+            </Container>
+        )
     }
-  }
+}
 
-  componentDidMount() {
-    fetch('/api/user')
-      .then(res => res.text())
-      .then(res => this.setState({message: res}));
-  }
+export default User;
 
-  render() {
-    return (
-      <div>
-        <h1>Log in</h1>
-        <p>{this.state.message}</p>
-      </div>
-    );
-  }
-}    
+
+// import React, { Component } from 'react';
+
+// class Login extends Component {
+//   constructor() {
+//     super();
+//     this.state = {
+//       message: 'Loading...'
+//     }
+//   }
+
+//   componentDidMount() {
+//     fetch('/api/user')
+//       .then(res => res.text())
+//       .then(res => this.setState({message: res}));
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         <h1>Log in</h1>
+//         <p>{this.state.message}</p>
+//       </div>
+//     );
+//   }
+// }    
 
 // import React, { Component } from "react";
 // // import API from "../utils/API";
@@ -104,4 +189,4 @@ class Login extends Component {
 // }
 
 
-export default Login;
+// export default Login;

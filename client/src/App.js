@@ -42,7 +42,6 @@ class App extends Component {
               <Navbar />
               <Wrapper>
                 <Route exact path="/" component={Search} />
-                <Route exact path="/userpage" component={UserPage} />
                 <Widget />
                 <Route exact path="/UserPage" component={UserPage} />
                 <Route exact path="/RecipeSelect/:id" component={RecipeSelect} />

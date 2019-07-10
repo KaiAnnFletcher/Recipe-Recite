@@ -7,7 +7,7 @@ import "./style.css";
 function DeleteBtn(props) {
   return (
     <button className="delete-btn" {...props}>
-      <i class="fa fa-trash"></i>
+      <i className="fa fa-trash"></i>
     </button>
   );
 }
