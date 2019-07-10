@@ -20,8 +20,10 @@ export default {
         return axios.post("/api/user/register", userData);
     },
     loginUser: function (userData) {
-        console.log(userData)
         return axios.post("/api/user/authenticate", userData);
     },
+    checkToken: function () {
+        return axios.get("/api/user/checkToken")
+    }
 
 }

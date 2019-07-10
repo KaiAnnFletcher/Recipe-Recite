@@ -26,7 +26,8 @@ class Speech extends Component {
             // input: "",
             recipe: {},
             ingredients: [],
-            instructions: []
+            instructions: [],
+            verified: false
         }
         this.toggleListen = this.toggleListen.bind(this)
         this.handleListen = this.handleListen.bind(this)
@@ -149,6 +150,16 @@ class Speech extends Component {
                     ingredients: data.data.ingredients
                 })
             })
+        API.checkToken()
+            .then(res => {
+            if (res.status === 200) {
+                this.setState({ verified: true });
+            } 
+            })
+            .catch(err => {
+            console.error(err);
+            });
+    }
     }
 
 
