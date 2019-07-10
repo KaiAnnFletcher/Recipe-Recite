@@ -161,7 +161,7 @@ class Speech extends Component {
                         <Bookmark />
                     </Link>
 
-                    <button onClick={this.toggleListen} className="btn btn-success playBtn">
+                    <button onClick={this.toggleListen} className="btn btn-success playBtn styleplayBtn">
                         Play
                     </button>
 

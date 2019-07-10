@@ -2,7 +2,21 @@
     float: right;
     border-radius:5px;
     padding:10px;
-    /* padding-left:10px; */
+    padding-left:25px;
+    background-color:green;
+    color:lightgoldenrodyellow;
+    margin-right:8px;
+  }
+
+  @media only screen and (max-width: 640px) {
+.linkBtn {
+
+    float: left;
+    border-radius:5px;
+    padding:10px;
     background-color:green;
     color:lightgoldenrodyellow;
   }
+
+  
+};

@@ -4,39 +4,22 @@
   height: 150px;
 }
 
-.styleLogin{
-  position:absolute;
-  right: 5px;
-}
-
 #ApptitleNav{
   height:100px;
-
 }
-
-/* .loginlink{
-  position:relative;
-  left: 70%;
-  font-size: 60px;
-} */
 
 @media only screen and (max-width: 640px) {
   .styleNav{
     background:white;
     opacity:0.8;
-    height: 180px;
-  }
-  
-  .styleLogin{
-    position:relative;
-    right: 2px;
+    height: 120px;
   }
   
   #ApptitleNav{
-    position:relative;
-    height:52px;
-    left: 130%;
-  
+    position:absolute;
+    top:5%;
+    left:25%;
+    height:80px;  
   }
 
 };
