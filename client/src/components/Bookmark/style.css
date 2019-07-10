@@ -1,7 +1,21 @@
 .BookmarkBtn {
     float: right;
     border-radius:5px;
-    padding:10px;
-    /* padding-left:10px; */
+    padding:12px;
+    color:green;
+    padding-left:25px;
     background-color:lightgoldenrodyellow;
   }
+
+@media only screen and (max-width: 640px) {
+.BookmarkBtn {
+    margin-right:20px;
+    float: right;
+    border-radius:5px;
+    padding:10px;
+    background-color:lightgoldenrodyellow;
+    color:green;
+  }
+
+  
+};

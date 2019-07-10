@@ -4,7 +4,7 @@ import "./style.css";
 
 function Bookmark(props) {
     return (
-        <button className="BookmarkBtn" {...props}>
+        <button className="BookmarkBtn btn btn-warning" {...props}>
             <span>Bookmark
                 <Link className="navbar-brand" to="RecipeSelect"></Link>              
                 {/* <Link to="/UserPage" className={window.location.pathname === "/UserPage" ? "nav-link active" : "nav-link"}></Link> */}
