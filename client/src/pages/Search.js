@@ -14,6 +14,7 @@ class Search extends Component {
         search: "",
         input: "",
         data: [],
+        verified: false,
     };
 
     handleInputChange = event => {
@@ -30,6 +31,15 @@ class Search extends Component {
             .then(data => {
                 console.log(data.data);
             })
+        API.checkToken()
+            .then(res => {
+            if (res.status === 200) {
+                this.setState({ verified: true });
+            } 
+            })
+            .catch(err => {
+            console.error(err);
+            });
     }
 
 
@@ -38,8 +48,6 @@ class Search extends Component {
 
         let fun = data => {
 
-            //console.log("****** = >", data.data);
-            //console.log(data.data[1].title);
             this.setState({ data: data.data })
 
         };
