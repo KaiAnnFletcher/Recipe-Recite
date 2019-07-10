@@ -11,23 +11,25 @@ return (
             <div className="form-group">
                 <label htmlFor="title"><h4>LOGIN</h4></label>
                 <input
-                    value={props.search}
                     onChange={props.handleLoginChange}
                     name="username"
                     type="text"
-                    placeholder="username"
+                    placeholder="Username"
+                    value={props.username}
+                    required
                 />
                 <input
-                    value={props.password}
                     onChange={props.handleLoginChange}
                     name="password"
-                    type="text"
-                    placeholder="password"
+                    type="password"
+                    placeholder="Password"
+                    value={props.password}
+                    required
                 />
                 <button 
                 className="btn searchBtn" 
                 type="submit" 
-                onClick={props.handleLoginChange}>
+                onClick={props.handleLoginSubmit}>
                 submit
                 </button>
             </div>
