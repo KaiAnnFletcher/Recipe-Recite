@@ -6,6 +6,7 @@ import API from "../utils/API";
 import LinkBtn from "../components/LinkBtn";
 import Bookmark from "../components/Bookmark";
 import { Link } from "react-router-dom";
+import "./style.css";
 
 
 class Search extends Component {
@@ -90,9 +91,9 @@ class Search extends Component {
                             <List>
                                 {this.state.data.map(data => (
                                     <ListItem key={data.data}>
-                                        <h2><strong>{data.title}</strong></h2>
+                                        <h3><strong>{data.title}</strong></h3>
                                         <Container>
-                                            <img alt="thumbnail" src={data.thumbnail} ></img>
+                                            <img className ="StyleThumbnail" alt="thumbnail" src={data.thumbnail} ></img>
                                             <h5>{data.author}</h5>
                                             <p>{data.summary}</p>
 
@@ -104,7 +105,7 @@ class Search extends Component {
 
                                         <Link to={"/RecipeSelect/" + data.linkid}>
                                             <LinkBtn
-                                                linkid={data.linkid}
+                                                linkid={data.linkid} 
                                             />
                                         </Link>
                                     </ ListItem>

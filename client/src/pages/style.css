@@ -9,4 +9,27 @@
     float: right;
     border-radius: 5px;
     padding: 10px;
+    padding-left:40px;
+    padding-right:40px;
 }
+@media only screen and (max-width: 640px) {
+    .StyleThumbnail{
+        margin-left:-20px;
+        margin-top:10px;
+        margin-bottom:15px;
+    }
+
+    h5{
+        position:relative;
+        left:30%;
+    }
+
+    .styleplayBtn{
+        float:left;
+        margin-left:20px;
+
+    }
+    
+
+  
+};

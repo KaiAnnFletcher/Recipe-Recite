@@ -7,21 +7,15 @@ import "./style.css";
 
 function responsiveVoice(props) {
     return (
-        <Container>
-            <Row>
-                <Col size="md-12">
-                    <div>
-                        <img alt="thumbnail" src={props.thumbnail}></img>
+        <Container className ="styleSelectRecipeWrap">
+
+                        <img className ="styleSelectRecipethumbnail" alt="thumbnail" src={props.thumbnail}></img>
                         <h4>{props.title}</h4>
-                        <h5>Author: </h5>
-                        <p>{props.author}</p>
-                        <a href={props.link}>Link to the Recipe Website</a>
-                        <h5>Summary: </h5>
-                        <p>{props.summary}</p>
-
+                        <p className ="styleSelectRecipeAuthor"><b>Author:</b> {props.author}</p>
+                        <a className ="styleSelectRecipeLink" href={props.link}>Link to the Recipe Website</a>
+                        <p className ="styleSummary"><h5>Summary: </h5>{props.summary}</p>
                         <br></br>
                         <br></br>
-
                         <h5>Ingredients: </h5>
                         <ul>
                             {props.ingredients.map(event => {
@@ -35,9 +29,8 @@ function responsiveVoice(props) {
                                 return <li>{event}</li>
                             })}
                         </ul>
-                    </div >
-                </Col>
-            </Row>
+
+
             <br></br>
             {/* <Link to={"/search"}>
                 <button className="btn btn-primary"> Go back </button>

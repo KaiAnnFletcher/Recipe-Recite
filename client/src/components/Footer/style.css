@@ -1,0 +1,19 @@
+.styleFooter{
+    position:fixed;
+    bottom:0px;
+    text-align:center;
+    left:30%;
+    font-size:12px;
+    color:lightgoldenrodyellow;
+    background:rgba(0,0,0, .5);
+    padding:0px;
+    margin-bottom:0px;
+    border-bottom:0px;
+    z-index:-1;
+}
+
+.footer-copyright{
+    padding:0px;
+    bottom:0px;
+    margin:0px;
+}

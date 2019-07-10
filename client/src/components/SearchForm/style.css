@@ -14,7 +14,7 @@
 .fa-search{
     margin-left:-2px;
     font-size:35px;
-    background:lightgoldenrodyellow;
+    background:transparent;
     color:green;
 }
 .searchBtn{
@@ -32,5 +32,12 @@
         height: 40px;
         border-radius:5px;
     }
+
+    .fa-search{
+    margin-left:-2px;
+    font-size:25px;
+    background:lightgoldenrodyellow;
+    color:green;
+}
   
   };

@@ -13,3 +13,43 @@
 .InstructionsStyle p{
 
 }
+@media only screen and (max-width: 640px) {
+.styleSelectRecipeWrap{
+    float:left;
+    width:100%;
+}
+
+.styleSelectRecipethumbnail{
+    margin-top:20px;
+}
+
+h4{
+    display:inline-block;
+    position:relative;
+    left:20%;
+    font-size:25px;
+    margin-top:15px;
+}
+
+.styleSelectRecipeAuthor{    
+    position:relative;
+    left:20%;
+    }
+.styleSelectRecipeLink{
+        position:relative;
+    left:10%;
+}
+
+.IngredientStyle p{
+margin-top:20px;
+margin-bottom:20px;
+}
+
+.styleSummary{
+margin-top:20px;
+}
+  
+
+
+
+};
