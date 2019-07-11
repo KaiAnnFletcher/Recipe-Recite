@@ -63,8 +63,9 @@ router.get('/checkToken', withAuth, function(req, res) {
   res.sendStatus(200);
 });
 
-router.route("/")
-  .get(usersController.findOne)
-  .post(usersController.create);
-
+router.post('/bookmark', withAuth, function(req, res) {
+  User.findOneAndUpdate({ username: req.username }, {$push: {favorites: req.body.id}})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+});
 module.exports = router;

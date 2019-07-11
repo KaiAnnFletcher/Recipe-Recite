@@ -23,7 +23,10 @@ export default {
         return axios.post("/api/user/authenticate", userData);
     },
     checkToken: function () {
-        return axios.get("/api/user/checkToken")
+        return axios.get("/api/user/checkToken");
+    },
+    bookmark: function(entryData){
+        return axios.post("/api/user/bookmark", entryData);
     }
 
 }

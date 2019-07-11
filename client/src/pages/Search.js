@@ -56,18 +56,10 @@ class Search extends Component {
             .catch(err => { console.log(err) })
     }
 
-    //handle clicking on a specific result
-    handleViewClick = link => {
-        window.location = link;
-    }
     //handle saving 
-    handleSaveClick = item => {
-        API.saveRecipe({
-            title: item.title,
-            author: item.author,
-            summary: item.summary,
-            thumbnail: item.thumbnail,
-            link: item.link,
+    handleSaveClick = id => {
+        API.bookmark({
+            id: id
         })
             .then(res => console.log("saved "))
             .catch(err => console.log(err));
@@ -99,10 +91,17 @@ class Search extends Component {
 
                                         </Container>
 
+                                        {this.state.verified ? (
+                                            <Bookmark
+                                            id={data._id}
+                                            onClick={this.handleSaveClick}
+                                            />
+                                        ) : (
                                         <Link to={"/UserPage"}>
-                                            <Bookmark />
+                                            <Bookmark
+                                            onClick={() => {return}}                                            />
                                         </Link>
-
+                                        )}
                                         <Link to={"/RecipeSelect/" + data.linkid}>
                                             <LinkBtn
                                                 linkid={data.linkid} 
