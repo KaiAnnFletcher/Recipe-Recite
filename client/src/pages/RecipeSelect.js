@@ -161,15 +161,31 @@ class Speech extends Component {
             });
     }
 
+    //handle saving 
+    handleSaveClick = id => {
+        API.bookmark({
+            id: id
+        })
+            .then(res => console.log("saved"))
+            .catch(err => console.log(err));
+    }
 
     render() {
         return (
             < Wrapper >
                 <div className="container styleRecipeSelect">
 
+                    {this.state.verified ? (
+                        <Bookmark
+                        id={this.state.recipe._id}
+                        onClick={this.handleSaveClick}
+                        />
+                    ) : (
                     <Link to={"/UserPage"}>
-                        <Bookmark />
+                        <Bookmark
+                        onClick={() => {return}}                                            />
                     </Link>
+                    )}
 
                     <button onClick={this.toggleListen} className="btn btn-success playBtn styleplayBtn">
                         Play
