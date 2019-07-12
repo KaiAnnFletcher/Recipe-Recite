@@ -14,7 +14,10 @@ function Footer() {
 						<li><a href="https://github.com/Tiffolin"><i className="fa fa-angle-double-right"></i>Tiffany Lin</a></li>
 						<li><a href="https://github.com/KaiAnnFletcher"><i className="fa fa-angle-double-right"></i>Kai-Ann Fletcher</a></li>
 						<li><a href="https://github.com/david-fetchopia"><i className="fa fa-angle-double-right"></i>David Ma</a></li>
+			
+						
             <span className="text-center copyrightStyle">© 2019 Copyright <u><a href="https://github.com/KaiAnnFletcher/Project-3_Team-2">  [Github Repo]</a></u></span>
+			<span className="text-center photobyStyle">photo by Nadine Primeau [Unsplash]</span>
 					</ul>
 				</div>
 

@@ -27,8 +27,14 @@ section {
 }
 
 .copyrightStyle{
-    margin-left:40px;
+    margin-left:30px;
     color:green;
+}
+
+.photobyStyle{
+    margin-left:30px;
+    color:green;
+    font-size:8px;
 }
 
 #footer ul.quick-links li{
