@@ -14,6 +14,7 @@ class Search extends Component {
         search: "",
         input: "",
         data: [],
+        verified: false,
     };
 
     handleInputChange = event => {
@@ -30,6 +31,15 @@ class Search extends Component {
             .then(data => {
                 console.log(data.data);
             })
+        API.checkToken()
+            .then(res => {
+            if (res.status === 200) {
+                this.setState({ verified: true });
+            } 
+            })
+            .catch(err => {
+            console.error(err);
+            });
     }
 
 
@@ -38,8 +48,6 @@ class Search extends Component {
 
         let fun = data => {
 
-            //console.log("****** = >", data.data);
-            //console.log(data.data[1].title);
             this.setState({ data: data.data })
 
         };
@@ -48,18 +56,10 @@ class Search extends Component {
             .catch(err => { console.log(err) })
     }
 
-    //handle clicking on a specific result
-    handleViewClick = link => {
-        window.location = link;
-    }
     //handle saving 
-    handleSaveClick = item => {
-        API.saveRecipe({
-            title: item.title,
-            author: item.author,
-            summary: item.summary,
-            thumbnail: item.thumbnail,
-            link: item.link,
+    handleSaveClick = id => {
+        API.bookmark({
+            id: id
         })
             .then(res => console.log("saved "))
             .catch(err => console.log(err));
@@ -86,15 +86,22 @@ class Search extends Component {
                                         <h3><strong>{data.title}</strong></h3>
                                         <Container>
                                             <img className ="StyleThumbnail" alt="thumbnail" src={data.thumbnail} ></img>
-                                            <h5>{data.author}</h5>
+                                            <h5 className ="StyleAuthor">{data.author}</h5>
                                             <p>{data.summary}</p>
 
                                         </Container>
 
+                                        {this.state.verified ? (
+                                            <Bookmark
+                                            id={data._id}
+                                            onClick={this.handleSaveClick}
+                                            />
+                                        ) : (
                                         <Link to={"/UserPage"}>
-                                            <Bookmark />
+                                            <Bookmark
+                                            onClick={() => {return}}                                            />
                                         </Link>
-
+                                        )}
                                         <Link to={"/RecipeSelect/" + data.linkid}>
                                             <LinkBtn
                                                 linkid={data.linkid} 

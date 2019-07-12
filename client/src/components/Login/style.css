@@ -1,48 +1,47 @@
-.formStyle{
-    position:relative;
-    left:-250px;
-    margin-top:20px;
-}
-.login input{
-    opacity:2;
-    background:lightgoldenrodyellow;
-    color: black;
-    height: 40px;
+.styleformWrap{
+    margin-top:20%;
+    /* background:rgba(0,0,0, .2); */
+    /* border:2px solid white; */
+    /* background:#4c9a00; */
     border-radius:5px;
+    /* opacity:0.9; */
+}
+.StyleloginWrap{
+    margin-top:20px;
+    display:inline-block;
+    padding:20px;
+    border-radius:5px;
+    border:2px solid white;
+    background:rgba(0,0,0, .2);
+    /* opacity:0.9; */
 }
 
-/* .login i {
-    margin:0px;
-    padding:0px;
-    border:0px;
-} */
-
-.login button {
-    /* margin:0px;
-    padding:0px;
-    border:0px;
-    height: 35px;
-    border-radius:5px; */
-    background: green;
+.styleLogin{
+    border-radius:5px;
+    padding:20px;
+    /* background:#4c9a00;
+        opacity:0.9; */
 }
+
+.login label{
+    color:white;
+    margin-left:11px;
+}
+
+.login input{
+margin:10px;
+border-radius:5px;
+}
+
+.login button{
+float:right;
+margin-right:11px;
+background:lightgoldenrodyellow;
+}
+
 
 @media only screen and (max-width: 640px) {
-
-    form{
-    position:relative;
-    left: 0px;
-    margin-top:20px;
-}
-
-    .styleSearch{
-        width: 100%;
-        margin-top:20px;
+    .StyleloginWrap{
+        float:left;
     }
-    
-    .form-group input{
-        width: 70%;
-        height: 40px;
-        border-radius:5px;
-    }
-  
   };

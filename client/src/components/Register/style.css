@@ -1,15 +1,29 @@
-.register{
-    position: absolute;
-    left:0px;
-    top:20px;
-    background:rgba(0,0,0, .2);
+.styleRegisterWrap{
+    margin-top:20%;
+    /* background:rgba(0,0,0, .2); */
+    /* border:2px solid white; */
+    /* background:lightgoldenrodyellow; */
     border-radius:5px;
-    padding:20px;
+    /* opacity:0.9; */
 
 }
 
-.styleregister{
+.styleregisterWrap{
+    margin-top:20px;
+    display:inline-block;
+    padding:20px;
+    border-radius:5px;
     border:2px solid white;
+    background:rgba(0,0,0, .2);
+    /* opacity:0.9; */
+}
+
+.styleRegister{
+    border-radius:5px;
+    padding:20px;
+    /* background:lightgoldenrodyellow;
+    opacity:0.9; */
+    
 }
 
 .register label{
@@ -25,4 +39,11 @@ border-radius:5px;
 .register button{
 float:right;
 margin-right:11px;
+background:green;
 }
+
+@media only screen and (max-width: 640px) {
+    .styleregisterWrap{
+        float:left;
+    }
+  };

@@ -20,7 +20,7 @@ function SearchForm(props) {
                 className="btn btn-warning searchBtn" 
                 type="submit" 
                 onClick={props.handleFormSubmit}>
-                    <i class="fa fa-search"></i>
+                    <i className="fa fa-search"></i>
                 </button>
             </div>
         </form>

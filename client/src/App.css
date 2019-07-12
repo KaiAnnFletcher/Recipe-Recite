@@ -1,24 +1,198 @@
-.App {
-  text-align: center;
+
+
+#splash {
+  animation: hideMe 8s 1;
+  animation-fill-mode: forwards;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+#App {
+  /* Photo by Nadine Primeau on Unsplash */
+  background-image: url(https://i.ibb.co/XW03Rgs/nadine-primeau-b-Lk-T8w-GV0-I-unsplash.jpg);
+  background-size: 100%;
+  animation: showMe 15s 1;
+  animation-fill-mode: forwards;
+  /* animation-delay: 0.2s; */
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+#Apptitle {
+  height: 120px;
+  margin-left: 80px;
+  margin-top: -50px;
 }
 
-.App-intro {
-  font-size: large;
+#bars {
+  height: 30px;
+  left: 35%;
+  margin: -10px 0 0 -20px;
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  animation: move 4s infinite;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.bar {
+  /* background: rgb(218, 210, 214); */
+  background: green;
+  bottom: 1px;
+  height: 10px;
+  position: absolute;
+  width: 5px;
+  animation: sound 0ms -800ms linear infinite alternate;
+}
+
+@keyframes sound {
+  0% {
+    opacity: .35;
+    height: 3px;
+  }
+
+  100% {
+    opacity: 1;
+    height: 60px;
+  }
+}
+
+.bar:nth-child(1) {
+  left: 1px;
+  animation-duration: 474ms;
+}
+
+.bar:nth-child(2) {
+  left: 5px;
+  animation-duration: 433ms;
+}
+
+.bar:nth-child(3) {
+  left: 9px;
+  animation-duration: 407ms;
+}
+
+.bar:nth-child(4) {
+  left: 13px;
+  animation-duration: 458ms;
+}
+
+.bar:nth-child(5) {
+  left: 17px;
+  animation-duration: 400ms;
+}
+
+.bar:nth-child(6) {
+  left: 21px;
+  animation-duration: 427ms;
+}
+
+.bar:nth-child(7) {
+  left: 25px;
+  animation-duration: 441ms;
+}
+
+.bar:nth-child(8) {
+  left: 29px;
+  animation-duration: 419ms;
+}
+
+.bar:nth-child(9) {
+  left: 33px;
+  animation-duration: 487ms;
+}
+
+.bar:nth-child(10) {
+  left: 36px;
+  animation-duration: 474ms;
+}
+
+.bar:nth-child(11) {
+  left: 45px;
+  animation-duration: 433ms;
+}
+
+.bar:nth-child(12) {
+  left: 49px;
+  animation-duration: 407ms;
+}
+
+.bar:nth-child(13) {
+  left: 55px;
+  animation-duration: 458ms;
+}
+
+.bar:nth-child(14) {
+  left: 67px;
+  animation-duration: 400ms;
+}
+
+.bar:nth-child(15) {
+  left: 71px;
+  animation-duration: 427ms;
+}
+
+
+
+@keyframes hideMe {
+  0% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 0;
+  }
+
+  85% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+
+@keyframes showMe {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 0;
+  }
+
+  50%{
+    opacity:0;
+  }
+
+  65%{
+    opacity:0.8;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+
+  #bars {
+    height: 30px;
+    left: 15%;
+    margin: -10px 0 0 -20px;
+    position: absolute;
+    top: 50%;
+    width: 30px;
+
+  }
+
+  #Apptitle {
+    height: 80px;
+    margin-left: 69px;
+    margin-top: -33px;
+  }
 }

@@ -14,6 +14,19 @@ export default {
         return axios.get("/api/recipe/search/" + parsedString);
     },
     getRecipeById: function (id) {
-        return axios.get("/api/recipe/" + id)        
+        return axios.get("/api/recipe/" + id)
+    },
+    registerUser: function (userData) {
+        return axios.post("/api/user/register", userData);
+    },
+    loginUser: function (userData) {
+        return axios.post("/api/user/authenticate", userData);
+    },
+    checkToken: function () {
+        return axios.get("/api/user/checkToken");
+    },
+    bookmark: function(entryData){
+        return axios.post("/api/user/bookmark", entryData);
     }
+
 }

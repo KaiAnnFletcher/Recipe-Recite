@@ -1,13 +1,14 @@
 
 import React from "react";
-import { Col, Row, Container } from "../Grid";
+// import {Container } from "../Grid";
 // import { Link } from "react-router-dom";
 import "./style.css";
 
 
 function responsiveVoice(props) {
     return (
-        <Container className ="styleSelectRecipeWrap">
+
+            <div className ="styleSelectRecipeWrap">
 
                         <img className ="styleSelectRecipethumbnail" alt="thumbnail" src={props.thumbnail}></img>
                         <h4>{props.title}</h4>
@@ -29,13 +30,12 @@ function responsiveVoice(props) {
                                 return <li>{event}</li>
                             })}
                         </ul>
-
-
             <br></br>
             {/* <Link to={"/search"}>
                 <button className="btn btn-primary"> Go back </button>
             </Link> */}
-        </Container>
+            </div>
+
 
     )
 }

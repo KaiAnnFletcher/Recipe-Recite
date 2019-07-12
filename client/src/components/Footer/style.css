@@ -1,19 +1,61 @@
-.styleFooter{
-    position:fixed;
-    bottom:0px;
-    text-align:center;
-    left:30%;
-    font-size:12px;
-    color:lightgoldenrodyellow;
-    background:rgba(0,0,0, .5);
-    padding:0px;
-    margin-bottom:0px;
-    border-bottom:0px;
-    z-index:-1;
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+section {
+    padding-top: 50px;
+    padding-bottom:2px;
+    /* opacity:0.8; */
+    font-size:13px;
 }
 
-.footer-copyright{
-    padding:0px;
-    bottom:0px;
-    margin:0px;
+#footer {
+    margin-top:50px;
+    background: white !important;
+    padding-top:50px;
+    font-size:13px;
+}
+#footer h6{
+	padding-left: 10px;
+    border-left: 3px solid #eeeeee;
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+    color:green;
+}
+#footer a {
+    color: green;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+.copyrightStyle{
+    margin-left:40px;
+    color:green;
+}
+
+#footer ul.quick-links li{
+    margin-left:20px;
+    display:inline-block;
+	padding: 3px 0;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.quick-links li:hover{
+	padding: 3px 0;
+	margin-left:5px;
+	font-weight:700;
+}
+#footer ul.quick-links li a i{
+	margin-right: 5px;
+}
+#footer ul.quick-links li:hover a i {
+    font-weight: 700;
+}
+
+@media (max-width:767px){
+	#footer h5 {
+    padding-left: 0;
+    border-left: transparent;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+}
 }

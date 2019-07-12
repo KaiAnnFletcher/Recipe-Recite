@@ -26,9 +26,9 @@ class Widget extends React.Component {
   render() {
     return (
 
-      <div id="embedded_messenger" class={this.state.active ? "active" : ""}>
-        <header id="message_header" onClick={this.toggle} >Chat</header>
-        <iframe title="botkitclient" id="botkit_client" src="../../public/chat.html"></iframe>
+      <div id="embedded_messenger" className={this.state.active ? "active" : ""}>
+        <header id="message_header" onClick={this.toggle} >Chat with Sir Mocha</header>
+        <iframe title="botkitclient" id="botkit_client" src="chat.html"></iframe>
       </div>
     );
   }
