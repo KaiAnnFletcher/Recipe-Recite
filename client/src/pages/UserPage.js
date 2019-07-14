@@ -69,6 +69,7 @@ class User extends Component {
 
     render() {
         return (
+
           <Container>
        
             <Row>
@@ -80,11 +81,13 @@ class User extends Component {
                     username={this.state.regusername}
                     password={this.state.regpassword}
                     />
+
                   
                   </Col>
                           
                 <Col size="lg-4 sm-12">
                 
+                     
                   <Login
                     handleLoginSubmit={this.handleLoginSubmit}
                     handleLoginChange={this.handleInputChange}
@@ -96,6 +99,10 @@ class User extends Component {
             </Row>
 
           </Container>
+         
+
+            </Wrapper>
+
         )
     }
 }
