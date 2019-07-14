@@ -1,3 +1,28 @@
+
+.styleformWrap{
+    margin-top:20%;
+    /* background:rgba(0,0,0, .2); */
+    /* border:2px solid white; */
+    /* background:#4c9a00; */
+    border-radius:5px;
+    /* opacity:0.9; */
+}
+.StyleloginWrap{
+    margin-top:20px;
+    display:inline-block;
+    padding:20px;
+    border-radius:5px;
+    border:2px solid white;
+    background:rgba(0,0,0, .2);
+    /* opacity:0.9; */
+}
+
+.styleLogin{
+    border-radius:5px;
+    padding:20px;
+    /* background:#4c9a00;
+        opacity:0.9; */
+  
 .login{
     position: absolute;
     right:0px;
@@ -24,9 +49,12 @@ border-radius:5px;
 .login button{
 float:right;
 margin-right:11px;
+background:lightgoldenrodyellow;
 }
 
 
 @media only screen and (max-width: 640px) {
-
+    .StyleloginWrap{
+        float:left;
+    }
   };

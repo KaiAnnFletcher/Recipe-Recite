@@ -4,8 +4,8 @@ import "./style.css";
 function Login(props) {
 return (
 
-<div className="login">
-  <div className="login-container">
+<div className="login styleformWrap">
+  <div className="login-container StyleloginWrap">
   <form className="login styleLogin">
             <div className="form-group">
                 <label htmlFor="title"><h4>LOGIN</h4></label>

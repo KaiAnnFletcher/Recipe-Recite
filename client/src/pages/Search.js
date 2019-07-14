@@ -86,7 +86,7 @@ class Search extends Component {
                                         <h3><strong>{data.title}</strong></h3>
                                         <Container>
                                             <img className ="StyleThumbnail" alt="thumbnail" src={data.thumbnail} ></img>
-                                            <h5>{data.author}</h5>
+                                            <h5 className ="StyleAuthor">{data.author}</h5>
                                             <p>{data.summary}</p>
 
                                         </Container>

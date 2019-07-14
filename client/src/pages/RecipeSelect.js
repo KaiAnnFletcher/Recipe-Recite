@@ -1,11 +1,11 @@
 
 import React, { Component } from "react"
+import "./style.css";
 import ResposiveVoice from "../components/recipePage";
 import { Link } from "react-router-dom";
 import Bookmark from "../components/Bookmark";
-// import { Col, Row, Container } from "../components/Grid";
-import Wrapper from "../components/Wrapper";
-import "./style.css";
+import {Container } from "../components/Grid";
+// import Wrapper from "../components/Wrapper";
 import API from "../utils/API"
 //------------------------SPEECH RECOGNITION-----------------------------
 
@@ -23,7 +23,6 @@ class Speech extends Component {
         super()
         this.state = {
             listening: false,
-            // input: "",
             recipe: {},
             ingredients: [],
             instructions: [],
@@ -55,7 +54,7 @@ class Speech extends Component {
             speech += this.state.instructions[i];
         }
 
-        window.responsiveVoice.speak(speech, "UK English Female", { rate: 1.2 }, { pitch: 2 }, { volume: 2 });
+        window.responsiveVoice.speak(speech, "UK English Female", { rate: 0.88 }, { pitch: 2 }, { volume: 2 });
     }
 
 
@@ -99,37 +98,29 @@ class Speech extends Component {
             //-------------------------COMMANDS------------------------------------
 
             const transcriptArr = finalTranscript.split(' ')
-            const stopCmd = transcriptArr.slice(-3, -2)
+            const stopCmd = transcriptArr.slice(-2)
             console.log('stopCmd -----', stopCmd);
-            // console.log(stopCmd[0]);
-            // console.log(stopCmd[1]);
-            for (var i = 0; i < stopCmd.length; i++) {
-                console.log("   **********   " + stopCmd[i]);
-                if (stopCmd[i] === 'stop') {
+         
+                if (stopCmd[0] === 'stop') {
                     recognition.stop();
                     recognition.onend = () => {
                         console.log('Stopped listening per command');
                         window.responsiveVoice.cancel();
                     }
-                } else if (stopCmd[i] === 'pause') {
-                    recognition.onresult = () => {
+                } else if (stopCmd.includes('pause')) {
                         console.log(" ##########   pause works   ######### ");
-                        window.responsiveVoice.pause().then(function (e) {
-                            recognition.stop();
-                            recognition.onend = () => {
-                                console.log('Paused listening per command, now it will start listening again');
-                                recognition.start();
-                            }
-                        })
-                    }
-                } else if (stopCmd[i] === 'resume') {
-                    recognition.onresult = () => {
+                        recognition.stop();
+                        window.responsiveVoice.pause();
+
+                } else if (stopCmd.includes('play')) {
                         console.log(" ##########   RESUME works   ######### ")
                         window.responsiveVoice.resume();
-                    }
+                        recognition.end();
+                       
                 }
-            }
+        
         }
+    
 
         recognition.onerror = event => {
             console.log("Error occurred in recognition: " + event.error)
@@ -172,7 +163,7 @@ class Speech extends Component {
 
     render() {
         return (
-            < Wrapper >
+            <Container>
                 <div className="container styleRecipeSelect">
 
                     {this.state.verified ? (
@@ -201,7 +192,7 @@ class Speech extends Component {
                         ingredients={this.state.ingredients}
                     />
                 </div>
-            </Wrapper >
+            </Container >
 
         )
     }

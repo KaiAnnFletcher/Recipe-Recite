@@ -4,9 +4,10 @@ import "./style.css";
 
 function LinkBtn(props) {
   return (
-    <button className="linkBtn btn btn-success" onClick={props.onClick}>
+    <button className="StylelinkBtn btn btn-warning" onClick={props.onClick}>
       <span> Select
         <Link className="navbar-brand" to="RecipeSelect"></Link>
+
       </span>
     </button>
   );
