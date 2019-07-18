@@ -46,10 +46,10 @@ class User extends Component {
         })
         .then(res => {
         if (res.status === 201) {
-          this.setState({registered: 1})
+          this.setState({registered: 2})
           this.setState({regmessage: res.data})
         } else {
-          this.setState({registered: 2})
+          this.setState({registered: 1})
           this.setState({regmessage: res.data})
         }
         console.log( this.state.registered, this.state.regmessage)
