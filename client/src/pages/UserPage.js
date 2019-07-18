@@ -95,6 +95,8 @@ class User extends Component {
                     handleRegisterChange={this.handleInputChange}
                     username={this.state.regusername}
                     password={this.state.regpassword}
+                    message={this.state.regmessage}
+                    status={this.state.registered}
                     />
 
                   
@@ -108,6 +110,8 @@ class User extends Component {
                     handleLoginChange={this.handleInputChange}
                     username={this.state.logusername}
                     password={this.state.logpassword}
+                    message={this.state.logmessage}
+                    status={this.state.login}
                     />
                   
                 </Col>

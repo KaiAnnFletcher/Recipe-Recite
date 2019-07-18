@@ -36,6 +36,7 @@ return (
                 submit
                 </button>
             </div>
+            {props.status===1 ? <span style={{ color: 'red' }}>{props.message}</span> : <span style={{ color: 'green' }}>{props.message}</span>}
         </form>
   </div>
 </div>
