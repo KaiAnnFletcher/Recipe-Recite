@@ -52,6 +52,7 @@ class User extends Component {
           this.setState({registered: 2})
           this.setState({regmessage: res.data})
         }
+        console.log( this.state.registered, this.state.regmessage)
       })
     };
 
