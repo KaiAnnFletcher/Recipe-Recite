@@ -14,6 +14,10 @@ class User extends Component {
       regpassword:"",
       logusername:"",
       logpassword:"",
+      registered: 0,
+      regmessage: "",
+      login: 0,
+      logmessage: "",
     };
 
     handleInputChange = (event) => {
@@ -40,6 +44,15 @@ class User extends Component {
             username: this.state.regusername,
             password: this.state.regpassword
         })
+        .then(res => {
+        if (res.status === 201) {
+          this.setState({registered: 1})
+          this.setState({regmessage: res.data})
+        } else {
+          this.setState({registered: 2})
+          this.setState({regmessage: res.data})
+        }
+      })
     };
 
     handleLoginSubmit = event => {
@@ -49,12 +62,13 @@ class User extends Component {
             password: this.state.logpassword
         })
         .then(res => {
-        if (res.status === 200) {
+        if (res.status === 201) {
         this.props.history.push('/');
         } else {
-        const error = new Error(res.error);
-        throw error;
+          this.setState({login: 1})
+          this.setState({logmessage: res.data})
         }
+        console.log( this.state.login, this.state.logmessage)
     })
     };
 
@@ -99,9 +113,6 @@ class User extends Component {
             </Row>
 
           </Container>
-         
-
-            </Wrapper>
 
         )
     }

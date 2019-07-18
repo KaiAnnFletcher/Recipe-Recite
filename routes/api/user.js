@@ -9,27 +9,19 @@ router.post('/authenticate', function(req, res) {
   User.findOne({ username }, function(err, user) {
     if (err) {
       console.error(err);
-      res.status(500)
-        .json({
-        error: 'Internal error please try again'
-      });
+      res.status(200)
+        .send('Internal error please try again');
     } else if (!user) {
-      res.status(401)
-        .json({
-          error: 'Incorrect username or password'
-        });
+      res.status(200)
+        .send('Incorrect username or password');
     } else {
       user.isCorrectPassword(password, function(err, same) {
         if (err) {
-          res.status(500)
-            .json({
-              error: 'Internal error please try again'
-          });
+          res.status(200)
+            .send( 'Internal error please try again');
         } else if (!same) {
-          res.status(401)
-            .json({
-              error: 'Incorrect username or password'
-          });
+          res.status(200)
+            .send('Incorrect username or password');
         } else {
           // Issue token
           const payload = { username };
@@ -37,7 +29,7 @@ router.post('/authenticate', function(req, res) {
             expiresIn: '1h'
           });
           res.cookie('token', token, { httpOnly: true })
-            .sendStatus(200);
+            .sendStatus(201);
         }
       });
     }
@@ -46,17 +38,24 @@ router.post('/authenticate', function(req, res) {
 
 // POST route to register a user
 router.post('/register', function(req, res) {
-  console.log(req.body);
-  const { username, password } = req.body;
-  const user = new User({ username, password });
-  user.save(function(err) {
-    if (err) {
-      res.status(500)
-        .send("Error registering new user please try again.");
-    } else {
-      res.status(200).send("Welcome to the club!");
-    }
-  });
+    const { username, password } = req.body;
+    const user = new User({ username, password });
+    User
+      .findOne({username: username}, function(err, dbModel){
+        if (dbModel) {
+          res.status(200).send("User already exists")
+        } else {
+          user.save(function(err) {
+            if (err) {
+              res.status(200)
+                .send("Error registering new user please try again.");
+            } else {
+              res.status(201).send("Successfully created user. Welcome!");
+            }
+          });
+        }
+      })
+
 });
 
 router.get('/checkToken', withAuth, function(req, res) {
