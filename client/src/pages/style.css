@@ -1,3 +1,20 @@
+.styleHomePage{
+    background:white;
+    color:darkgreen;
+    border-radius:5px;
+    border:2px solid green;
+    padding:30px;
+    margin-top:5%;
+}
+
+.stylePgLink{
+margin:20px;
+text-align:center;
+text-decoration: underline overline;
+font-size: 20px;
+color:brown;
+}
+
 .styleRecipeSelect {
     margin-top: 5%;
     /* background-color: white; */

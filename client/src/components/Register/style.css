@@ -8,7 +8,7 @@
 
 }
 
-.styleregisterWrap{
+.styleRegisterSubWrap{
     margin-top:20px;
     display:inline-block;
     padding:20px;
@@ -42,8 +42,24 @@ margin-right:11px;
 background:green;
 }
 
+.styleUserExists{    
+    color: white;
+    background: red;
+    opacity:0.6;
+    text-align:center;
+    border-radius:5px;
+}
+
+.styleRegisterMsg{    
+    color: white;
+    background: green;
+    opacity:1;
+    text-align:center;
+    border-radius:5px;
+}
+
 @media only screen and (max-width: 640px) {
-    .styleregisterWrap{
+    .styleRegisterSubWrap{
         float:left;
     }
   };
