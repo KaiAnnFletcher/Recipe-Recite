@@ -8,6 +8,7 @@ import API from "../utils/API";
 import Login from "../components/Login";
 import Register from "../components/Register";
 
+
 class User extends Component {
     state = {
       regusername:"",
@@ -64,7 +65,7 @@ class User extends Component {
         })
         .then(res => {
         if (res.status === 201) {
-        this.props.history.push('/');
+        this.props.history.push('/Search');
         } else {
           this.setState({login: 1})
           this.setState({logmessage: res.data})

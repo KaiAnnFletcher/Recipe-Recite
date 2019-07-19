@@ -7,7 +7,17 @@ return (
 
 
 <div className="register styleRegisterWrap">
-  <div className="register-container styleregisterWrap">
+  <div className="register-container styleRegisterSubWrap">
+
+    {props.status===1 ? 
+                <div className="styleUserExists">
+                {props.message}
+                </div> 
+                : 
+                <div className="styleRegisterMsg">
+                {props.message}
+                </div>}
+
   <form className="register styleRegister">
   
             <div className="form-group">
@@ -36,7 +46,8 @@ return (
                 submit
                 </button>
             </div>
-            {props.status===1 ? <span style={{ color: 'red' }}>{props.message}</span> : <span style={{ color: 'green' }}>{props.message}</span>}
+
+
         </form>
   </div>
 </div>

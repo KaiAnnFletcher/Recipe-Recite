@@ -63,7 +63,11 @@ class Search extends Component {
         })
             .then(res => console.log("saved "))
             .catch(err => console.log(err));
+    //If user is logged in, direct them to BookmarkPage
+    // console.log( this.state.login, this.state.logmessage)
     }
+
+
 
     render() {
         return (

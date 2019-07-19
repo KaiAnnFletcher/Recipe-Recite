@@ -10,7 +10,7 @@ function responsiveVoice(props) {
 
             <div className ="styleSelectRecipeWrap">
 
-                        <img className ="styleSelectRecipethumbnail" alt="thumbnail" src={props.thumbnail}></img>
+                        <img className ="styleSelectRecipethumbnail img-fluid" alt="thumbnail" src={props.thumbnail}></img>
                         <h4>{props.title}</h4>
                         <p className ="styleSelectRecipeAuthor"><b>Author:</b> {props.author}</p>
                         <a className ="styleSelectRecipeLink" href={props.link}>Link to the Recipe Website</a>
