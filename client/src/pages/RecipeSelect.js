@@ -4,7 +4,7 @@ import "./style.css";
 import ResposiveVoice from "../components/recipePage";
 import { Link } from "react-router-dom";
 import Bookmark from "../components/Bookmark";
-import {Container } from "../components/Grid";
+import { Container } from "../components/Grid";
 // import Wrapper from "../components/Wrapper";
 import API from "../utils/API"
 //------------------------SPEECH RECOGNITION-----------------------------
@@ -26,7 +26,8 @@ class Speech extends Component {
             recipe: {},
             ingredients: [],
             instructions: [],
-            verified: false
+            verified: false,
+            counter: 0
         }
         this.toggleListen = this.toggleListen.bind(this)
         this.handleListen = this.handleListen.bind(this)
@@ -45,18 +46,36 @@ class Speech extends Component {
         speech += "Here are the ingridients that you will need ."
 
         for (var j = 0; j < this.state.ingredients.length; j++) {
-
             speech += this.state.ingredients[j];
-        }
 
+        }
         speech += "Follow these instructions to prepare your meal .";
         for (var i = 0; i < this.state.instructions.length; i++) {
             speech += this.state.instructions[i];
         }
 
-        window.responsiveVoice.speak(speech, "UK English Female", { rate: 0.88 }, { pitch: 2 }, { volume: 2 });
+        let newArray = []
+        newArray = speech.split('.');
+
+        console.log(newArray);
+
+        for (var u = 0; u < newArray.length; u++) {
+            this.setState({
+                counter: this.state.counter + 1,
+            })
+            window.responsiveVoice.speak(newArray[u], "UK English Female", { rate: 0.88 }, { pitch: 2 }, { volume: 2 });
+        }
     }
 
+    //  still workig on this 
+
+    repeatStep() {
+        console.log("Current index of speech ----  " + this.state.counter);
+    }
+
+    // nextStep() {
+    //     console.log("----- testing -------");
+    // }
 
 
 
@@ -100,27 +119,35 @@ class Speech extends Component {
             const transcriptArr = finalTranscript.split(' ')
             const stopCmd = transcriptArr.slice(-2)
             console.log('stopCmd -----', stopCmd);
-         
-                if (stopCmd[0] === 'stop') {
-                    recognition.stop();
-                    recognition.onend = () => {
-                        console.log('Stopped listening per command');
-                        window.responsiveVoice.cancel();
-                    }
-                } else if (stopCmd.includes('pause')) {
-                        console.log(" ##########   pause works   ######### ");
-                        recognition.stop();
-                        window.responsiveVoice.pause();
 
-                } else if (stopCmd.includes('play')) {
-                        console.log(" ##########   RESUME works   ######### ")
-                        window.responsiveVoice.resume();
-                        recognition.end();
-                       
+            if (stopCmd[0] === 'stop') {
+                recognition.stop();
+                recognition.onend = () => {
+                    console.log('Stopped listening per command');
+                    window.responsiveVoice.cancel();
                 }
-        
+            } else if (stopCmd.includes('pause')) {
+                console.log(" ##########   pause works   ######### ");
+                recognition.stop();
+                window.responsiveVoice.pause();
+
+            } else if (stopCmd.includes('play')) {
+                console.log(" ##########   RESUME works   ######### ")
+                window.responsiveVoice.resume();
+                recognition.end();
+
+            } else if (stopCmd.includes('repeat')) {
+                console.log(" ##########   REPEAT works   ######### ")
+                this.repeatStep();
+                recognition.end();
+            } else if (stopCmd.includes('next')) {
+                console.log(" ##########   NEXT works   ######### ")
+                this.nextStep();
+                recognition.end();
+            }
+
         }
-    
+
 
         recognition.onerror = event => {
             console.log("Error occurred in recognition: " + event.error)
@@ -143,12 +170,12 @@ class Speech extends Component {
             })
         API.checkToken()
             .then(res => {
-            if (res.status === 200) {
-                this.setState({ verified: true });
-            } 
+                if (res.status === 200) {
+                    this.setState({ verified: true });
+                }
             })
             .catch(err => {
-            console.error(err);
+                console.error(err);
             });
     }
 
@@ -168,15 +195,15 @@ class Speech extends Component {
 
                     {this.state.verified ? (
                         <Bookmark
-                        id={this.state.recipe._id}
-                        onClick={this.handleSaveClick}
+                            id={this.state.recipe._id}
+                            onClick={this.handleSaveClick}
                         />
                     ) : (
-                    <Link to={"/UserPage"}>
-                        <Bookmark
-                        onClick={() => {return}}                                            />
-                    </Link>
-                    )}
+                            <Link to={"/UserPage"}>
+                                <Bookmark
+                                    onClick={() => { return }} />
+                            </Link>
+                        )}
 
                     <button onClick={this.toggleListen} className="btn btn-success playBtn styleplayBtn">
                         Play
