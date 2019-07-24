@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const usersController = require("../../controllers/userscontroller");
 const User = require('../../models/user.js');
+const Recipe = require("../../models/recipe");
 const jwt = require('jsonwebtoken');
 const withAuth = require('../../middleware');
 
@@ -62,9 +63,31 @@ router.get('/checkToken', withAuth, function(req, res) {
   res.sendStatus(200);
 });
 
+router.get('/getUsername', withAuth, function(req, res) {
+  res.json({username: req.username});
+});
+
 router.post('/bookmark', withAuth, function(req, res) {
   User.findOneAndUpdate({ username: req.username }, {$push: {favorites: req.body.id}})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
 });
+
+router.get('/allBookmarks', withAuth, function(req, res) {
+  let promises = [];
+  User.findOne({ username: req.username }, "favorites")
+      .then(favorites => {
+
+      favorites.favorites.forEach(id => {
+        const promise = Recipe
+        .findById(id)
+        promises.push(promise);
+        
+      })
+      Promise.all(promises).then((data) => {
+        res.json(data)
+      })
+      })
+});
+
 module.exports = router;
