@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import API from "../../utils/API";
 import "./style.css";
 
 class Navbar extends Component {
@@ -8,6 +9,22 @@ class Navbar extends Component {
     user: "",
     verified: false,
 };
+
+    componentDidMount() {
+        API.checkToken()
+            .then(res => {
+            if (res.status === 200) {
+                this.setState({ verified: true });
+                API.getUsername()
+                  .then(data => {
+                  this.setState({ user: data.data.username })
+                  })
+            } 
+            })
+            .catch(err => {
+            console.error(err);
+            });
+    }
 
   render() {
     return (
@@ -18,11 +35,20 @@ class Navbar extends Component {
 
                 {/* verify if user is logged in. If yes, display userName*/}        
                 {this.state.verified ? ( 
-                        <span ></span> 
+                        <span className="styleUserloggedInStatus">
+                          Welcome! 
+                          <Link className="navbar-brand" to={"/BookmarkPage/" + this.state.user}>
+                            <span className="styleUserName">
+
+                            {this.state.user}
+
+                            </span>
+                          </Link>
+                        </span>
                         ) : (
                         <span className="styleUserloggedInStatus">
                           Welcome! 
-                          <Link className="navbar-brand" to="/BookmarkPage">
+                          <Link className="navbar-brand" to="/UserPage">
                             <span className="styleUserName">
 
                              {/*USER ID*/} User    

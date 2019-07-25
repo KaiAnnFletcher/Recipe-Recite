@@ -10,33 +10,24 @@ import "./style.css";
 class UserBookmark extends Component {
     state = {
         user: "",
+        verified: false,
         bookmarks: [],
-        login:0,
     };
 
 // Grab the id of the recipe from the url bookmarked to populate component with data. => Kevin, could you check and fix this part please?
     componentDidMount() {
-        API.getUserById(this.props.match.params.id)
-            .then(res => this.setState({ user: res.data },
-                // console.log(res.data)
-            )).catch(err => console.log(err));
-        API.getRecipeById(this.props.match.params.id)
-            .then(res => this.setState({ recipe: res.data },
-                // console.log(res.data)
-            )).catch(err => console.log(err));
-        API.scrapeRecipeById(this.props.match.params.id)
-            .then(data => {
-                // console.log(data.data);
-                console.log(data.data.instructions)
-                this.setState({
-                    instructions: data.data.instructions,
-                    ingredients: data.data.ingredients
-                })
-            })
         API.checkToken()
             .then(res => {
             if (res.status === 200) {
                 this.setState({ verified: true });
+                API.getUsername()
+                    .then(data => {
+                    this.setState({ user: data.data.username })
+                    })
+                API.getBookmarks()
+                    .then(data => {
+                        this.setState({ bookmarks: data.data})
+                    })
             } 
             })
             .catch(err => {
