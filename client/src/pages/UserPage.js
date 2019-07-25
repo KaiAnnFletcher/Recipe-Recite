@@ -21,6 +21,18 @@ class User extends Component {
       logmessage: "",
     };
 
+    componentDidMount() {
+        API.checkToken()
+            .then(res => {
+            if (res.status === 200) {
+              this.props.history.push('/Search');
+            } 
+            })
+            .catch(err => {
+            console.error(err);
+            });
+    }
+
     handleInputChange = (event) => {
         const { value, name } = event.target;
         this.setState({
@@ -65,7 +77,7 @@ class User extends Component {
         })
         .then(res => {
         if (res.status === 201) {
-        this.props.history.push('/Search');
+          window.location.reload()
         } else {
           this.setState({login: 1})
           this.setState({logmessage: res.data})
