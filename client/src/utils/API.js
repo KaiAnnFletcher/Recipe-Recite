@@ -25,8 +25,13 @@ export default {
     checkToken: function () {
         return axios.get("/api/user/checkToken");
     },
+    getUsername: function () {
+        return axios.get("/api/user/getUsername")
+    },
     bookmark: function(entryData){
         return axios.post("/api/user/bookmark", entryData);
-    }
-
+    },
+    getBookmarks: function(){
+        return axios.get("/api/user/allBookmarks");
+    },
 }

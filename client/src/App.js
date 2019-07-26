@@ -49,7 +49,7 @@ class App extends Component {
                 <Widget />
                 <Route exact path="/UserPage" component={UserPage} />
                 <Route exact path="/RecipeSelect/:id" component={RecipeSelect} />
-                <Route exact path="/UserBookmarkPage/:user" component={UserBookmarkPage} />
+                <Route exact path="/BookmarkPage/:user" component={UserBookmarkPage} />
               </Wrapper>
             </div>
           </Router>
