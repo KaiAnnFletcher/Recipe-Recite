@@ -65,13 +65,13 @@ function ChatComponent() {
         //  if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
         //  return "Please respond with either yes or no"
         //  }
-        if (value === ('no'|| 'NO' || 'No')) {
+        if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
           return 'Thank you for visiting! Please do come again!';
         }
-        if (!value === ('no'|| 'NO' || 'No' || 'yes' ||'YES' || 'Yes')) {
+        if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
           return 'Please say either yes or no as a valid answer';
         }
-        if (value === ('yes' ||'YES' || 'Yes'))
+        if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
         return true;
       },
       trigger: '5',
@@ -97,10 +97,13 @@ function ChatComponent() {
         // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
         //   return "Please respond with either yes or no"
         //   }
-        if (value === ('no'|| 'NO' || 'No')) {
+        if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
           return 'Thank you for visiting! Please do come again!';
         }
-        if (value === ('yes' ||'YES' || 'Yes'))
+        if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
+          return 'Please say either yes or no as a valid answer';
+        }
+        if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
         return true;
       },
       trigger: '7',
@@ -119,10 +122,13 @@ function ChatComponent() {
       // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
       //   return "Please respond with either yes or no"
       //   }
-      if (value === ('no'|| 'NO' || 'No')) {
+      if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
         return 'Thank you for visiting! Please do come again!';
       }
-      if (value === ('next' ||'NEXT' || 'Next'))
+      if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
+        return 'Please say either yes or no as a valid answer';
+      }
+      if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
       return true;
     },
     trigger: '9',
@@ -141,10 +147,13 @@ function ChatComponent() {
       // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
       //   return "Please respond with either yes or no"
       //   }
-      if (value === ('no'|| 'NO' || 'No')) {
+      if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
         return 'Thank you for visiting! Please do come again!';
       }
-      if (value === ('yes' ||'YES' || 'Yes'))
+      if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
+        return 'Please say either yes or no as a valid answer';
+      }
+      if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
       return true;
     },
     trigger: '11',
@@ -163,10 +172,13 @@ function ChatComponent() {
       // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
       //   return "Please respond with either yes or no"
       //   }
-      if (value === ('no'|| 'NO' || 'No')) {
+      if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
         return 'Thank you for visiting! Please do come again!';
       }
-      if (value === ('yes' ||'YES' || 'Yes'))
+      if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
+        return 'Please say either yes or no as a valid answer';
+      }
+      if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
       return true;
     },
     trigger: '13',
@@ -185,10 +197,13 @@ function ChatComponent() {
       // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
       //   return "Please respond with either yes or no"
       //   }
-      if (value === ('no'|| 'NO' || 'No')) {
+      if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
         return 'Thank you for visiting! Please do come again!';
       }
-      if (value === ('yes' ||'YES' || 'Yes' || 'Yes please'))
+      if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
+        return 'Please say either yes or no as a valid answer';
+      }
+      if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
       return true;
     },
     trigger: '15',
@@ -207,10 +222,13 @@ function ChatComponent() {
       // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
       //   return "Please respond with either yes or no"
       //   }
-      if (value === ('no'|| 'NO' || 'No')) {
+      if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
         return 'Thank you for visiting! Please do come again!';
       }
-      if (value === ('yes' ||'YES' || 'Yes' || 'Yes please'))
+      if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
+        return 'Please say either yes or no as a valid answer';
+      }
+      if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
       return true;
     },
     trigger: '17',
@@ -229,10 +247,13 @@ function ChatComponent() {
       // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
       //   return "Please respond with either yes or no"
       //   }
-      if (value === ('no'|| 'NO' || 'No')) {
-      return 'Thank you for visiting! Please do come again!';
+      if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
+        return 'Thank you for visiting! Please do come again!';
       }
-      if (value === ('yes' ||'YES' || 'Yes' || 'Yes please'))
+      if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
+        return 'Please say either yes or no as a valid answer';
+      }
+      if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
       return true;
     },
     trigger: '19',
@@ -251,10 +272,13 @@ function ChatComponent() {
         // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
         //   return "Please respond with either yes or no"
         //   }
-        if (value === ('no'|| 'NO' || 'No')) {
-        return 'Thank you for visiting! Please do come again!';
+        if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
+          return 'Thank you for visiting! Please do come again!';
         }
-        if (value === ('yes' ||'YES' || 'Yes' || 'Yes please'))
+        if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
+          return 'Please say either yes or no as a valid answer';
+        }
+        if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
         return true;
       },
       trigger: '21',
@@ -273,10 +297,13 @@ function ChatComponent() {
         // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
         //   return "Please respond with either yes or no"
         //   }
-        if (value === ('no'|| 'NO' || 'No')) {
-        return 'Thank you for visiting! Please do come again!';
+        if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
+          return 'Thank you for visiting! Please do come again!';
         }
-        if (value === ('yes' ||'YES' || 'Yes' || 'Yes please'))
+        if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
+          return 'Please say either yes or no as a valid answer';
+        }
+        if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
         return true;
       },
       trigger: '23',
@@ -295,10 +322,13 @@ function ChatComponent() {
             // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
             //   return "Please respond with either yes or no"
             //   }
-            if (value === ('no'|| 'NO' || 'No')) {
-            return 'Thank you for visiting! Please do come again!';
+            if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
+              return 'Thank you for visiting! Please do come again!';
             }
-            if (value === ('yes' ||'YES' || 'Yes' || 'Yes please'))
+            if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
+              return 'Please say either yes or no as a valid answer';
+            }
+            if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
             return true;
           },
           trigger: '25',
@@ -317,10 +347,13 @@ function ChatComponent() {
               // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
               //   return "Please respond with either yes or no"
               //   }
-              if (value === ('no'|| 'NO' || 'No')) {
-              return 'Thank you for visiting! Please do come again!';
+              if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
+                return 'Thank you for visiting! Please do come again!';
               }
-              if (value === ('yes' ||'YES' || 'Yes' || 'Yes please'))
+              if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
+                return 'Please say either yes or no as a valid answer';
+              }
+              if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
               return true;
             },
             trigger: '27',
@@ -339,10 +372,13 @@ function ChatComponent() {
                 // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
                 //   return "Please respond with either yes or no"
                 //   }
-                if (value === ('no'|| 'NO' || 'No')) {
-                return 'Thank you for visiting! Please do come again!';
+                if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
+                  return 'Thank you for visiting! Please do come again!';
                 }
-                if (value === ('yes' ||'YES' || 'Yes' || 'Yes please'))
+                if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
+                  return 'Please say either yes or no as a valid answer';
+                }
+                if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
                 return true;
               },
               trigger: '29',
@@ -361,10 +397,13 @@ function ChatComponent() {
                   // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
                   //   return "Please respond with either yes or no"
                   //   }
-                  if (value === ('no'|| 'NO' || 'No')) {
-                  return 'Thank you for visiting! Please do come again!';
+                  if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
+                    return 'Thank you for visiting! Please do come again!';
                   }
-                  if (value === ('yes' ||'YES' || 'Yes' || 'Yes please'))
+                  if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
+                    return 'Please say either yes or no as a valid answer';
+                  }
+                  if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
                   return true;
                 },
                 trigger: '31',
@@ -383,10 +422,13 @@ function ChatComponent() {
                     // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
                     //   return "Please respond with either yes or no"
                     //   }
-                    if (value === ('no'|| 'NO' || 'No')) {
-                    return 'Thank you for visiting! Please do come again!';
+                    if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
+                      return 'Thank you for visiting! Please do come again!';
                     }
-                    if (value === ('yes' ||'YES' || 'Yes' || 'Yes please'))
+                    if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
+                      return 'Please say either yes or no as a valid answer';
+                    }
+                    if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
                     return true;
                   },
                   trigger: '33',
