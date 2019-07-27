@@ -39,9 +39,6 @@ app.use(routes);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://recipe_recite:recipe1@ds349857.mlab.com:49857/heroku_hk9qfwn9");
 
 
-//botkit - the brain of this bot lives in the controllers folder
-require('./controllers/botkitcontroller')
-
 // Send every other request to the React app
 // Define any API routes before this runs
 // app.get("*", (req, res) => {
