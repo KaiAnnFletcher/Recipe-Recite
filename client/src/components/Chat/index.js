@@ -410,7 +410,7 @@ function ChatComponent() {
 
         {
           id: '25',
-          message: "Don't crowd the pan! Whether you're baking or pan frying, it's important to avoid crowding the pan. Similalry to when vegetables or proteins are cooked while moist, when they're crammed into a pan they'll steam instead of brown, which is never good. Shall we keep going?",
+          message: "Don't crowd the pan! Whether you're baking or pan frying, it's important to avoid crowding the pan. Similarly to when vegetables or proteins are cooked while moist, when they're crammed into a pan they'll steam instead of brown, which is never good. Shall we keep going?",
           trigger: '26',
         },
   
@@ -440,7 +440,7 @@ function ChatComponent() {
 
           {
             id: '27',
-            message: "Be patient and stop poking your meat! Keep your heat high, flip it once, and stop poking it. When the meat is done, it will release itself - no scraping with a spatula needed! You know to do, say the magic word to be blessed with more tips and tricks!",
+            message: "Be patient and stop poking your meat! Keep your heat high, flip it once, and stop poking it. When the meat is done, it will release itself - no scraping with a spatula needed! You know what to do, say the magic word to be blessed with more tips and tricks!",
             trigger: '28',
           },
 
