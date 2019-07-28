@@ -62,28 +62,52 @@ function ChatComponent() {
       id: '4',
       user: true,
       validator: (value) => {
-        //  if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
-        //  return "Please respond with either yes or no"
+        if (/y(?:es)?|1/i.test(value)) {
+          console.log('contains yes regex')
+          return true;
+        }
+        if (/n(?:o)?|2/i.test(value)) {
+          console.log('contains no regex')
+          return 'Thank you for visiting! Please do come again!'
+        }
+        if(!(/n(?:o)?|2/i.test(value))) {
+          console.log("Not no")
+          return 'Please say either yes or no as a valid answer'
+        }
+        if(!(/y(?:es)?|1/i.test(value))){
+          console.log("Not no")
+          return 'Please say either yes or no as a valid answer'
+        }
+        // if (value === ('no'||'NO'||'No'||'Nope'||'NOPE'||'nope'||'NO THANK YOU'||'no thank you'||'No thank you'||'No Thank You'||'n'||'N'))  {
+        //   return 'Thank you for visiting! Please do come again!';
+        // }
+        // if (value === !('no'||'NO'||'No'||'Nope'||'NOPE'||'nope'||'NO THANK YOU'||'no thank you'||'No thank you'||'No Thank You'||'n'||'N'||'yes'||'YES'||'Yes'||'Yep'||'YEP'||'yep'||'YES THANK YOU'||'yes thank you'||'Yes thank you'||'Yes Thank You'||'y'||'Y')) {
+        //   return 'Please say either yes or no as a valid answer';
+        // }
+        // if (value === ('yes'||'YES'||'Yes'||'Yep'||'YEP'||'yep'||'YES THANK YOU'||'yes thank you'||'Yes thank you'||'Yes Thank You'||'y'||'Y'))
+        // return true;
+        // var value1 = ['yes','YES','Yes','Yep','YEP','yep','YES THANK YOU','yes thank you','Yes thank you','Yes Thank You','y','Y'];
+        // for (var i = 0; i<value1.length; i++);
+        // if (value1 = true) {
+        //   console.log("yes")
+        //   return true;
+        // }
+        // var value2 = ['no','NO','No','Nope','NOPE','nope','NO THANK YOU','no thank you','No thank you','No Thank You','n','N'];
+        // for (var j = 0; j<value2.length; j++);
+        // if(value2 = true) {
+        //   console.log("no")
+        //   return 'Thank you for visiting! Please do come again!'
+        // }
+        //  var value3 = ['no','NO','No','Nope','NOPE','nope','NO THANK YOU','no thank you','No thank you','No Thank You','n','N','yes','YES','Yes','Yep','YEP','yep','YES THANK YOU','yes thank you','Yes thank you','Yes Thank You','y','Y'].indexOf(value)
+        //  for (var k = 0; k<value3.length; k++);
+        //  if(value3 = false) {
+        //    console.log("neither yes nor no")
+        //    return 'Invalid choice please enter yes or no'
         //  }
-        if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
-          return 'Thank you for visiting! Please do come again!';
-        }
-        if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
-          return 'Please say either yes or no as a valid answer';
-        }
-        if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
-        return true;
-      },
+      },   
       trigger: '5',
     },
-    // {
-    //   id: '4',
-    //   options: [
-    //     { value: 1, label: 'Yes', trigger: '5' },
-    //     { value: 2, label: 'No', trigger: '6' },
-    //     { value: 3, label: 'Maybe Later', trigger: '7' },
-    //   ],
-    // },
+   
     {
       id: '5',
       message: "Did you know that if your food tends to taste bland, it most likely only requires a little more salt, as opposed to more ingredients? The key to flavourful food is to season with salt every step of the cooking process including at the end - but always remember still that a little goes a long way! How about another?",
@@ -94,24 +118,29 @@ function ChatComponent() {
     id: '6',
       user: true,
       validator: (value) => {
-        // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
-        //   return "Please respond with either yes or no"
-        //   }
-        if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
-          return 'Thank you for visiting! Please do come again!';
+        if (/y(?:es)?|1/i.test(value)) {
+          console.log('contains yes regex')
+          return true;
         }
-        if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
-          return 'Please say either yes or no as a valid answer';
+        if (/n(?:o)?|2/i.test(value)) {
+          console.log('contains no regex')
+          return 'Thank you for visiting! Please do come again!'
         }
-        if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
-        return true;
+        if(!(/n(?:o)?|2/i.test(value))) {
+          console.log("Not no")
+          return 'Please say either yes or no as a valid answer'
+        }
+        if(!(/y(?:es)?|1/i.test(value))){
+          console.log("Not no")
+          return 'Please say either yes or no as a valid answer'
+        }
       },
       trigger: '7',
     },
 
     {
       id: '7',
-      message: "Did you know that sugar enhances the flavors of savory foods such as roasted carrots, beets, and tomatoes. It plays an important role in balancing flavors!  Say 'next' for another savoury tip!",
+      message: "Did you know that sugar enhances the flavors of savory foods such as roasted carrots, beets, and tomatoes. It plays an important role in balancing flavors! Say 'next' for another savoury tip!",
       trigger: '8',
     },
 
@@ -119,24 +148,29 @@ function ChatComponent() {
     id: '8',
     user: true,
     validator: (value) => {
-      // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
-      //   return "Please respond with either yes or no"
-      //   }
-      if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
-        return 'Thank you for visiting! Please do come again!';
+      if (/next/i.test(value)) {
+        console.log('contains next regex')
+        return true;
       }
-      if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
-        return 'Please say either yes or no as a valid answer';
+      if (/n(?:o)?|2/i.test(value)) {
+        console.log('contains no regex')
+        return 'Thank you for visiting! Please do come again!'
       }
-      if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
-      return true;
+      if(!(/next/i.test(value))) {
+        console.log("Not next")
+        return 'Please say either next or no as a valid answer'
+      }
+      if(!(/n(?:o)?|2/i.test(value))){
+        console.log("Not no")
+        return 'Please say either next or no as a valid answer'
+      }
     },
     trigger: '9',
-  },
+    },
 
   {
     id: '9',
-    message: "Do you ever wonder how restaurants get their sauces so shiny and rich? It's because they finish them with a few pats of cold butter (aka monter au beurre) before serving them. Next time you're making a sauce, try adding a few pats of cold butter at the very end to add richness and shine. How about another?",
+    message: "Do you ever wonder how restaurants get their sauces so shiny and rich? It's because they finish them with a few pats of cold butter (aka monter au beurre) before serving them. Next time you're making a sauce, try adding a few pats of cold butter at the very end to add richness and shine. I say on to the next, what do you think?",
     trigger: '10',
   },
 
@@ -144,20 +178,25 @@ function ChatComponent() {
     id: '10',
     user: true,
     validator: (value) => {
-      // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
-      //   return "Please respond with either yes or no"
-      //   }
-      if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
-        return 'Thank you for visiting! Please do come again!';
+      if (/y(?:es)?|1/i.test(value)) {
+        console.log('contains yes regex')
+        return true;
       }
-      if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
-        return 'Please say either yes or no as a valid answer';
+      if (/n(?:o)?|2/i.test(value)) {
+        console.log('contains no regex')
+        return 'Thank you for visiting! Please do come again!'
       }
-      if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
-      return true;
-    },
-    trigger: '11',
+      if(!(/n(?:o)?|2/i.test(value))) {
+        console.log("Not no")
+        return 'Please say either yes or no as a valid answer'
+      }
+      if(!(/y(?:es)?|1/i.test(value))){
+        console.log("Not no")
+        return 'Please say either yes or no as a valid answer'
+      }
   },
+  trigger: '11',
+},
 
   {
     id: '11',
@@ -169,17 +208,22 @@ function ChatComponent() {
     id: '12',
     user: true,
     validator: (value) => {
-      // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
-      //   return "Please respond with either yes or no"
-      //   }
-      if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
-        return 'Thank you for visiting! Please do come again!';
+      if (/y(?:es)?|1/i.test(value)) {
+        console.log('contains yes regex')
+        return true;
       }
-      if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
-        return 'Please say either yes or no as a valid answer';
+      if (/n(?:o)?|2/i.test(value)) {
+        console.log('contains no regex')
+        return 'Thank you for visiting! Please do come again!'
       }
-      if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
-      return true;
+      if(!(/n(?:o)?|2/i.test(value))) {
+        console.log("Not no")
+        return 'Please say either yes or no as a valid answer'
+      }
+      if(!(/y(?:es)?|1/i.test(value))){
+        console.log("Not no")
+        return 'Please say either yes or no as a valid answer'
+      }
     },
     trigger: '13',
   },
@@ -194,17 +238,22 @@ function ChatComponent() {
     id: '14',
     user: true,
     validator: (value) => {
-      // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
-      //   return "Please respond with either yes or no"
-      //   }
-      if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
-        return 'Thank you for visiting! Please do come again!';
+      if (/y(?:es)?|1/i.test(value)) {
+        console.log('contains yes regex')
+        return true;
       }
-      if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
-        return 'Please say either yes or no as a valid answer';
+      if (/n(?:o)?|2/i.test(value)) {
+        console.log('contains no regex')
+        return 'Thank you for visiting! Please do come again!'
       }
-      if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
-      return true;
+      if(!(/n(?:o)?|2/i.test(value))) {
+        console.log("Not no")
+        return 'Please say either yes or no as a valid answer'
+      }
+      if(!(/y(?:es)?|1/i.test(value))){
+        console.log("Not no")
+        return 'Please say either yes or no as a valid answer'
+      }
     },
     trigger: '15',
   },
@@ -219,17 +268,22 @@ function ChatComponent() {
     id: '16',
     user: true,
     validator: (value) => {
-      // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
-      //   return "Please respond with either yes or no"
-      //   }
-      if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
-        return 'Thank you for visiting! Please do come again!';
+      if (/y(?:es)?|1/i.test(value)) {
+        console.log('contains yes regex')
+        return true;
       }
-      if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
-        return 'Please say either yes or no as a valid answer';
+      if (/n(?:o)?|2/i.test(value)) {
+        console.log('contains no regex')
+        return 'Thank you for visiting! Please do come again!'
       }
-      if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
-      return true;
+      if(!(/n(?:o)?|2/i.test(value))) {
+        console.log("Not no")
+        return 'Please say either yes or no as a valid answer'
+      }
+      if(!(/y(?:es)?|1/i.test(value))){
+        console.log("Not no")
+        return 'Please say either yes or no as a valid answer'
+      }
     },
     trigger: '17',
   },
@@ -244,24 +298,29 @@ function ChatComponent() {
   id: '18',
     user: true,
     validator: (value) => {
-      // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
-      //   return "Please respond with either yes or no"
-      //   }
-      if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
-        return 'Thank you for visiting! Please do come again!';
+      if (/y(?:es)?|1/i.test(value)) {
+        console.log('contains yes regex')
+        return true;
       }
-      if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
-        return 'Please say either yes or no as a valid answer';
+      if (/n(?:o)?|2/i.test(value)) {
+        console.log('contains no regex')
+        return 'Thank you for visiting! Please do come again!'
       }
-      if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
-      return true;
+      if(!(/n(?:o)?|2/i.test(value))) {
+        console.log("Not no")
+        return 'Please say either yes or no as a valid answer'
+      }
+      if(!(/y(?:es)?|1/i.test(value))){
+        console.log("Not no")
+        return 'Please say either yes or no as a valid answer'
+      }
     },
     trigger: '19',
   },
 
   {
     id: '19',
-    message: "Cook your pasta until it's almost done, then transfer it to your sauce to finish cooking. The pasta will absorb a ton of flavour and cling to the sauce better. If the sauce is too thick, add some reserved pasta water to thin it out and give it a beautifully glossy shine! I say on to the next!",
+    message: "Cook your pasta until it's almost done, then transfer it to your sauce to finish cooking. The pasta will absorb a ton of flavour and cling to the sauce better. If the sauce is too thick, add some reserved pasta water to thin it out and give it a beautifully glossy shine! I still have a few more tips up my sleeve if you care to hear!",
     trigger: '20',
   },
 
@@ -269,17 +328,22 @@ function ChatComponent() {
     id: '20',
       user: true,
       validator: (value) => {
-        // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
-        //   return "Please respond with either yes or no"
-        //   }
-        if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
-          return 'Thank you for visiting! Please do come again!';
+        if (/y(?:es)?|1/i.test(value)) {
+          console.log('contains yes regex')
+          return true;
         }
-        if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
-          return 'Please say either yes or no as a valid answer';
+        if (/n(?:o)?|2/i.test(value)) {
+          console.log('contains no regex')
+          return 'Thank you for visiting! Please do come again!'
         }
-        if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
-        return true;
+        if(!(/n(?:o)?|2/i.test(value))) {
+          console.log("Not no")
+          return 'Please say either yes or no as a valid answer'
+        }
+        if(!(/y(?:es)?|1/i.test(value))){
+          console.log("Not no")
+          return 'Please say either yes or no as a valid answer'
+        }
       },
       trigger: '21',
     },
@@ -294,17 +358,22 @@ function ChatComponent() {
     id: '22',
       user: true,
       validator: (value) => {
-        // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
-        //   return "Please respond with either yes or no"
-        //   }
-        if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
-          return 'Thank you for visiting! Please do come again!';
+        if (/y(?:es)?|1/i.test(value)) {
+          console.log('contains yes regex')
+          return true;
         }
-        if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
-          return 'Please say either yes or no as a valid answer';
+        if (/n(?:o)?|2/i.test(value)) {
+          console.log('contains no regex')
+          return 'Thank you for visiting! Please do come again!'
         }
-        if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
-        return true;
+        if(!(/n(?:o)?|2/i.test(value))) {
+          console.log("Not no")
+          return 'Please say either yes or no as a valid answer'
+        }
+        if(!(/y(?:es)?|1/i.test(value))){
+          console.log("Not no")
+          return 'Please say either yes or no as a valid answer'
+        }
       },
       trigger: '23',
     },
@@ -319,24 +388,29 @@ function ChatComponent() {
         id: '24',
           user: true,
           validator: (value) => {
-            // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
-            //   return "Please respond with either yes or no"
-            //   }
-            if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
-              return 'Thank you for visiting! Please do come again!';
+            if (/y(?:es)?|1/i.test(value)) {
+              console.log('contains yes regex')
+              return true;
             }
-            if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
-              return 'Please say either yes or no as a valid answer';
+            if (/n(?:o)?|2/i.test(value)) {
+              console.log('contains no regex')
+              return 'Thank you for visiting! Please do come again!'
             }
-            if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
-            return true;
+            if(!(/n(?:o)?|2/i.test(value))) {
+              console.log("Not no")
+              return 'Please say either yes or no as a valid answer'
+            }
+            if(!(/y(?:es)?|1/i.test(value))){
+              console.log("Not no")
+              return 'Please say either yes or no as a valid answer'
+            }
           },
           trigger: '25',
         },
 
         {
           id: '25',
-          message: "For perfectly juicy meat, brine it! (Brining is just a fancy word for soaking meat in salt water). Brining makes them juicy, succulet and bursting! Shall we keep going?",
+          message: "Don't crowd the pan! Whether you're baking or pan frying, it's important to avoid crowding the pan. Similalry to when vegetables or proteins are cooked while moist, when they're crammed into a pan they'll steam instead of brown, which is never good. Shall we keep going?",
           trigger: '26',
         },
   
@@ -344,17 +418,22 @@ function ChatComponent() {
           id: '26',
             user: true,
             validator: (value) => {
-              // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
-              //   return "Please respond with either yes or no"
-              //   }
-              if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
-                return 'Thank you for visiting! Please do come again!';
+              if (/y(?:es)?|1/i.test(value)) {
+                console.log('contains yes regex')
+                return true;
               }
-              if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
-                return 'Please say either yes or no as a valid answer';
+              if (/n(?:o)?|2/i.test(value)) {
+                console.log('contains no regex')
+                return 'Thank you for visiting! Please do come again!'
               }
-              if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
-              return true;
+              if(!(/n(?:o)?|2/i.test(value))) {
+                console.log("Not no")
+                return 'Please say either yes or no as a valid answer'
+              }
+              if(!(/y(?:es)?|1/i.test(value))){
+                console.log("Not no")
+                return 'Please say either yes or no as a valid answer'
+              }
             },
             trigger: '27',
           },
@@ -369,17 +448,22 @@ function ChatComponent() {
             id: '28',
               user: true,
               validator: (value) => {
-                // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
-                //   return "Please respond with either yes or no"
-                //   }
-                if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
-                  return 'Thank you for visiting! Please do come again!';
+                if (/y(?:es)?|1/i.test(value)) {
+                  console.log('contains yes regex')
+                  return true;
                 }
-                if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
-                  return 'Please say either yes or no as a valid answer';
+                if (/n(?:o)?|2/i.test(value)) {
+                  console.log('contains no regex')
+                  return 'Thank you for visiting! Please do come again!'
                 }
-                if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
-                return true;
+                if(!(/n(?:o)?|2/i.test(value))) {
+                  console.log("Not no")
+                  return 'Please say either yes or no as a valid answer'
+                }
+                if(!(/y(?:es)?|1/i.test(value))){
+                  console.log("Not no")
+                  return 'Please say either yes or no as a valid answer'
+                }
               },
               trigger: '29',
             },
@@ -394,17 +478,22 @@ function ChatComponent() {
               id: '30',
                 user: true,
                 validator: (value) => {
-                  // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
-                  //   return "Please respond with either yes or no"
-                  //   }
-                  if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
-                    return 'Thank you for visiting! Please do come again!';
+                  if (/y(?:es)?|1/i.test(value)) {
+                    console.log('contains yes regex')
+                    return true;
                   }
-                  if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
-                    return 'Please say either yes or no as a valid answer';
+                  if (/n(?:o)?|2/i.test(value)) {
+                    console.log('contains no regex')
+                    return 'Thank you for visiting! Please do come again!'
                   }
-                  if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
-                  return true;
+                  if(!(/n(?:o)?|2/i.test(value))) {
+                    console.log("Not no")
+                    return 'Please say either yes or no as a valid answer'
+                  }
+                  if(!(/y(?:es)?|1/i.test(value))){
+                    console.log("Not no")
+                    return 'Please say either yes or no as a valid answer'
+                  }
                 },
                 trigger: '31',
               },
@@ -419,17 +508,22 @@ function ChatComponent() {
                 id: '32',
                   user: true,
                   validator: (value) => {
-                    // if (value !== ('yes' || 'YES' || 'Yes') || value !== ('no' || 'NO' || 'No')) {
-                    //   return "Please respond with either yes or no"
-                    //   }
-                    if (value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N"))  {
-                      return 'Thank you for visiting! Please do come again!';
+                    if (/y(?:es)?|1/i.test(value)) {
+                      console.log('contains yes regex')
+                      return true;
                     }
-                    if (!value === ('no'|| 'NO' || 'No' || "Nope" || "NOPE" || "nope" || "NO THANK YOU" || "no thank you" || "No thank you" || "No Thank You" || "n" || "N" || 'yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y")) {
-                      return 'Please say either yes or no as a valid answer';
+                    if (/n(?:o)?|2/i.test(value)) {
+                      console.log('contains no regex')
+                      return 'Thank you for visiting! Please do come again!'
                     }
-                    if (value === ('yes' ||'YES' || 'Yes' || "Yep" || "YEP" || "yep" || "YES THANK YOU" || "yes thank you" || "Yes thank you" || "Yes Thank You" || "y" || "Y"))
-                    return true;
+                    if(!(/n(?:o)?|2/i.test(value))) {
+                      console.log("Not no")
+                      return 'Please say either yes or no as a valid answer'
+                    }
+                    if(!(/y(?:es)?|1/i.test(value))){
+                      console.log("Not no")
+                      return 'Please say either yes or no as a valid answer'
+                    }
                   },
                   trigger: '33',
                 },
@@ -442,7 +536,7 @@ function ChatComponent() {
 
                 {
                   id: '34',
-                  message: "I am afraid I have reached the end! Thank you for listening!",
+                  message: "I am afraid I have reached the end! A very special thank you to Jesse Szewczyk for his wonderful culinary tips!. Thank you for listening! ",
                   end: true,
                 },
   ]}
