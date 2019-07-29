@@ -15,14 +15,16 @@ const theme = {
   userFontColor: '#4a4a4a',
 };
 
-const toggleFloating = ({opened}) => {
-  if({opened}) {
-    speechSynthesis = {enable: true, lang:'en'}
-  }
-  else if (!{opened}) {
-    speechSynthesis = {enable: false, lang: 'en'}
-  }
-}
+// const toggleFloating = ({opened}) => {
+//   if({opened}) {
+//     console.log("opened")
+//     speechSynthesis = {enable: true, lang:'en'}
+//   }
+//   else if (!{opened}) {
+//     console.log("not opened")
+//     speechSynthesis = {enable: false, lang: 'en'}
+//   }
+// }
 
 function ChatComponent() {
 
@@ -32,9 +34,8 @@ function ChatComponent() {
   
   <ChatBot
   floating={true}
-  opened={false}
   recognitionEnable={true}
-  speechSynthesis = {{enable:toggleFloating, lang:'en'}}
+  speechSynthesis = {{enable: true, lang:'en'}}
   headerTitle="Recipe Tips with Chai!"
   botAvatar="https://image.shutterstock.com/image-vector/cute-smiling-funny-robot-chat-600w-757177696.jpg"
   userAvatar="https://image.shutterstock.com/image-vector/illustration-long-shadow-icon-avatar-600w-227664952.jpg"
@@ -42,19 +43,30 @@ function ChatComponent() {
   steps={[
     {
       id: '1',
-      message: "Well hello there, my name is Chai! I am your friendly chatty chatbot! Welcome to RECIPE RECITE! What is your name?",
+      delay: 9000,
+      message: "Well hello there, my name is Chai! I am your friendly chatty chatbot! Welcome to RECIPE RECITE! If you would like to chat more with me, click the green message icon on the bottom right of the page and start by saying hello! If not, feel free to jump right into exploring our website! Enjoy!",
       trigger: '2',
     },
 
     {
       id: '2',
       user: true,
+      validator: (value) => {
+        if(/h(?:ello)?|h(?:i)/i.test(value)) {
+          console.log('contains hi/hello regex')
+          return true;
+        }
+        if(!(/h(?:ello)?|h(?:i)/i.test(value))) {
+          console.log('contains no hi/hello regex')
+          return 'Please enter hi or hello as a valid answer'
+        }
+      },
       trigger: '3',
     },
 
     {
       id: '3',
-      message: "Hi {previousValue}, it's a pleasure to meet you! Do you care to hear about some of the recipe tips I have to offer?",
+      message: "It's a pleasure to meet you! Do you care to hear about some of the recipe tips I have to offer?",
       trigger: '4'
     },
 
