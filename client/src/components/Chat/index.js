@@ -34,8 +34,10 @@ function ChatComponent() {
   
   <ChatBot
   floating={true}
+  opened={true}
+  hideInput={true}
   recognitionEnable={true}
-  speechSynthesis = {{enable: true, lang:'en'}}
+  speechSynthesis = {{enable: false, lang:'en'}}
   headerTitle="Recipe Tips with Chai!"
   botAvatar="https://image.shutterstock.com/image-vector/cute-smiling-funny-robot-chat-600w-757177696.jpg"
   userAvatar="https://image.shutterstock.com/image-vector/illustration-long-shadow-icon-avatar-600w-227664952.jpg"
@@ -51,22 +53,12 @@ function ChatComponent() {
     {
       id: '2',
       user: true,
-      validator: (value) => {
-        if(/h(?:ello)?|h(?:i)/i.test(value)) {
-          console.log('contains hi/hello regex')
-          return true;
-        }
-        if(!(/h(?:ello)?|h(?:i)/i.test(value))) {
-          console.log('contains no hi/hello regex')
-          return 'Please enter hi or hello as a valid answer'
-        }
-      },
       trigger: '3',
     },
 
     {
       id: '3',
-      message: "It's a pleasure to meet you! Do you care to hear about some of the recipe tips I have to offer?",
+      message: "Hi {previousValue}, it's a pleasure to meet you! Do you care to hear about some of the recipe tips I have to offer?",
       trigger: '4'
     },
 
