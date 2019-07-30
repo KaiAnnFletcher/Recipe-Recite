@@ -44,7 +44,7 @@ function ChatComponent() {
     {
       id: '1',
       delay: 9000,
-      message: "Well hello there, my name is Chai! I am your friendly chatty chatbot! Welcome to RECIPE RECITE! If you would like to chat more with me, click the green message icon on the bottom right of the page and start by saying hello! If not, feel free to jump right into exploring our website! Enjoy!",
+      message: "Well hello there, my name is Chai! I am your friendly chatty chatbot! Welcome to RECIPE RECITE! What is your name?",
       trigger: '2',
     },
 
